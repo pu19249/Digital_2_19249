@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include <pic16f887.h> 
 #define _XTAL_FREQ 4000000
+
+#include "config_ADC.h" //ya puedo usar mis funciones
 /*=============================================================================
                         BITS DE CONFIGURACION
  =============================================================================*/
@@ -49,12 +51,16 @@ char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011,
                        0b01111101, 0b00000111, 0b01111111,
                        0b01101111, 0b01110111, 0b01111100,
                        0b00111001, 0b01011110, 0b01111001, 0b01110001};
+
+char pot1;
 /*==============================================================================
                                INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
 void setup(void);
+char swap(char variable);
 
 void __interrupt() isr(void){
+    //interrupcion del puerto B
     if (RBIF){
         if(RB0 == 0){
             PORTC++;
@@ -63,6 +69,12 @@ void __interrupt() isr(void){
         if(RB1 == 0){
             PORTC--;
             RBIF = 0;
+        }
+    }
+    //interrupcion ADC
+    if(ADC){
+        if(ADCON0bits.CHS == 0){ //para que sea el pin A0 donde esta el pot
+            pot1 = ADRESH; //tomo los 8 msb y los paso a una variable
         }
     }
 }
@@ -74,16 +86,31 @@ void main(void){
     setup();
     while(1){
         
-    }
-    
-    
-    
-    
-    
+    }   
 }
 /*==============================================================================
                                     FUNCIONES
  =============================================================================*/
+
+void multiplexado(void){
+ 
+    PORTE = 0x00; //Para limpiar el puerto de transistores
+    transistores = 0b00000000; //para que se vaya al disp1
+    if (transistores == 0b00000000){
+        display1();
+    }
+    if (transistores == 0b00000001){ //para que se vaya al disp2
+        display2();
+    }
+    return;
+}
+
+char swap(char variable){
+    return ((variable & 0x0F)<<4 | (variable & 0xF0)>>4);
+} /*la primera expresion nos da los ultimos cuatro bits de la variable
+   * con el operador "<<" hacemos cuatro corrimientos a la izquierda, la otra 
+   * expresion nos da los primeros cuatro bits, y los corremos a la derecha
+   * por ultimo se hace un OR de bits para hacer el swap*/
 
 /*==============================================================================
                             CONFIGURACION DE PIC
@@ -131,6 +158,8 @@ void setup(void){
     INTCONbits.RBIE = 1;
     INTCONbits.RBIF = 0;    //limpiar bandera de interrupcion
     
+     //configurar el modulo ADC
+    config_ADC(1);
     return;
 }
 

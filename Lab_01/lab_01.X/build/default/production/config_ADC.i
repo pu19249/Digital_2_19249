@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "config_ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 10 "main.c"
+# 1 "config_ADC.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,7 +2495,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 10 "main.c" 2
+# 9 "config_ADC.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2623,9 +2630,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 11 "main.c" 2
-
-
+# 10 "config_ADC.c" 2
 
 
 # 1 "./config_ADC.h" 1
@@ -2635,130 +2640,56 @@ typedef uint16_t uintptr_t;
 
 
 void config_ADC(char frec);
-# 15 "main.c" 2
+# 12 "config_ADC.c" 2
 
 
 
+void config_ADC(char frec) {
+    switch(frec){
+        case 0:
+            ADCON0bits.CHS = 0;
+            _delay((unsigned long)((100)*(4000000/4000000.0)));
 
+            ADCON0bits.ADCS0 = 0;
+            ADCON0bits.ADCS1 = 0;
+            ADCON0bits.ADON = 1;
+            ADCON1bits.ADFM = 0;
+            ADCON1bits.VCFG1 = 0;
+            ADCON1bits.VCFG0 = 0;
+            break;
+        case 1:
+            ADCON0bits.CHS = 0;
+            _delay((unsigned long)((100)*(4000000/4000000.0)));
 
-#pragma config FOSC = INTRC_NOCLKOUT
+            ADCON0bits.ADCS0 = 1;
+            ADCON0bits.ADCS1 = 0;
+            ADCON0bits.ADON = 1;
+            ADCON1bits.ADFM = 0;
+            ADCON1bits.VCFG1 = 0;
+            ADCON1bits.VCFG0 = 0;
+            break;
+        case 2:
+            ADCON0bits.CHS = 0;
+            _delay((unsigned long)((100)*(4000000/4000000.0)));
 
+            ADCON0bits.ADCS0 = 0;
+            ADCON0bits.ADCS1 = 1;
+            ADCON0bits.ADON = 1;
+            ADCON1bits.ADFM = 0;
+            ADCON1bits.VCFG1 = 0;
+            ADCON1bits.VCFG0 = 0;
+            break;
+        case 3:
+            ADCON0bits.CHS = 0;
+            _delay((unsigned long)((100)*(4000000/4000000.0)));
 
-#pragma config WDTE = OFF
-
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-
-#pragma config CP = OFF
-
-#pragma config CPD = OFF
-
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-
-#pragma config FCMEN = OFF
-
-#pragma config LVP = OFF
-
-
-
-#pragma config BOR4V = BOR40V
-
-#pragma config WRT = OFF
-
-
-
-
-
-char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011,
-                       0b01001111, 0b01100110, 0b01101101,
-                       0b01111101, 0b00000111, 0b01111111,
-                       0b01101111, 0b01110111, 0b01111100,
-                       0b00111001, 0b01011110, 0b01111001, 0b01110001};
-
-
-
-void setup(void);
-
-void __attribute__((picinterrupt(("")))) isr(void){
-
-    if (RBIF){
-        if(RB0 == 0){
-            PORTC++;
-            RBIF = 0;
-        }
-        if(RB1 == 0){
-            PORTC--;
-            RBIF = 0;
-        }
+            ADCON0bits.ADCS0 = 1;
+            ADCON0bits.ADCS1 = 1;
+            ADCON0bits.ADON = 1;
+            ADCON1bits.ADFM = 0;
+            ADCON1bits.VCFG1 = 0;
+            ADCON1bits.VCFG0 = 0;
+            break;
     }
-}
-
-
-
-
-void main(void){
-    setup();
-    while(1){
-
-    }
-
-
-
-
-
-}
-
-
-
-
-
-
-
-void setup(void){
-
-    TRISB0 = 1;
-    TRISB1 = 1;
-    ANSELH = 0;
-
-    ANSELbits.ANS0 = 1;
-    TRISA0 = 1;
-
-    TRISB7 = 0;
-    TRISC = 0x00;
-    TRISD = 0x00;
-
-
-    PORTA = 0x00;
-    PORTB = 0x00;
-    PORTC = 0x00;
-    PORTD = 0x00;
-    PORTE = 0x00;
-
-
-    OPTION_REGbits.nRBPU = 0;
-    WPUBbits.WPUB = 0b00000011;
-
-
-    OSCCONbits.IRCF0 = 0;
-    OSCCONbits.IRCF1 = 1;
-    OSCCONbits.IRCF2 = 1;
-    OSCCONbits.SCS = 1;
-
-
-    PIE1bits.ADIE = 1;
-    PIR1bits.ADIF = 0;
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-
-
-
-    IOCBbits.IOCB0 = 1;
-    IOCBbits.IOCB1 = 1;
-    INTCONbits.RBIE = 1;
-    INTCONbits.RBIF = 0;
-
-
-    config_ADC(1);
     return;
 }
