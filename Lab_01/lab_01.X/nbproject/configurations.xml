@@ -16,7 +16,7 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>config_ADC.c</itemPath>
-      <itemPath>tabla_7.c</itemPath>
+      <itemPath>tabla.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

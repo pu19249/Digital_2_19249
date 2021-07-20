@@ -13,6 +13,7 @@
 #define _XTAL_FREQ 4000000
 
 #include "config_ADC.h" //ya puedo usar mis funciones
+#include "tabla.h"
 /*=============================================================================
                         BITS DE CONFIGURACION
  =============================================================================*/
@@ -46,11 +47,7 @@
 /*==============================================================================
                                VARIABLES
  =============================================================================*/
-char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011, 
-                       0b01001111, 0b01100110, 0b01101101,
-                       0b01111101, 0b00000111, 0b01111111,
-                       0b01101111, 0b01110111, 0b01111100,
-                       0b00111001, 0b01011110, 0b01111001, 0b01110001};
+
 
 char pot1, pot2, pot3;
 char contador;
@@ -98,14 +95,14 @@ void __interrupt() isr(void){
             PORTD = 0x00;
             RE2 = 0;
             RE1 = 1;
-            PORTD = tabla_7seg[pot2];
+            PORTD = traducir(pot2);
             transistores = 1;
            
         } else{
             PORTD = 0x00;
             RE2 = 1;
             //RE1 = 0;
-            PORTD = tabla_7seg[pot3];
+            PORTD = traducir(pot3);
             transistores = 0;
             
             

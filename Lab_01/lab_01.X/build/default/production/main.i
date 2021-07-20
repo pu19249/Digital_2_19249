@@ -2637,6 +2637,11 @@ typedef uint16_t uintptr_t;
 void config_ADC(char frec);
 # 15 "main.c" 2
 
+# 1 "./tabla.h" 1
+# 15 "./tabla.h"
+char traducir(char variable);
+# 16 "main.c" 2
+
 
 
 
@@ -2670,11 +2675,7 @@ void config_ADC(char frec);
 
 
 
-char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011,
-                       0b01001111, 0b01100110, 0b01101101,
-                       0b01111101, 0b00000111, 0b01111111,
-                       0b01101111, 0b01110111, 0b01111100,
-                       0b00111001, 0b01011110, 0b01111001, 0b01110001};
+
 
 char pot1, pot2, pot3;
 char contador;
@@ -2722,14 +2723,14 @@ void __attribute__((picinterrupt(("")))) isr(void){
             PORTD = 0x00;
             RE2 = 0;
             RE1 = 1;
-            PORTD = tabla_7seg[pot2];
+            PORTD = traducir(pot2);
             transistores = 1;
 
         } else{
             PORTD = 0x00;
             RE2 = 1;
 
-            PORTD = tabla_7seg[pot3];
+            PORTD = traducir(pot3);
             transistores = 0;
 
 
@@ -2759,7 +2760,7 @@ void main(void){
         }
     }
 }
-# 173 "main.c"
+# 170 "main.c"
 char swap(char variable){
     return ((variable & 0x0F)<<4 | (variable & 0xF0)>>4);
 }
