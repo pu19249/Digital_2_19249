@@ -52,30 +52,67 @@ char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011,
                        0b01101111, 0b01110111, 0b01111100,
                        0b00111001, 0b01011110, 0b01111001, 0b01110001};
 
-char pot1;
+char pot1, pot2, pot3;
+char contador;
+char transistores = 0;
 /*==============================================================================
                                INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
 void setup(void);
 char swap(char variable);
+void multiplexado(void);
+void display1(void);
+void display2(void);
 
 void __interrupt() isr(void){
     //interrupcion del puerto B
     if (RBIF){
         if(RB0 == 0){
             PORTC++;
-            RBIF = 0;
+            
         }
         if(RB1 == 0){
             PORTC--;
-            RBIF = 0;
+            
         }
+            RBIF = 0; //apagar la bandera fuera de la int para asegurar que baje
     }
     //interrupcion ADC
-    if(ADC){
+    if(ADIF){
         if(ADCON0bits.CHS == 0){ //para que sea el pin A0 donde esta el pot
             pot1 = ADRESH; //tomo los 8 msb y los paso a una variable
+            
         }
+        ADIF = 0;           //apaga la bandera
+        //__delay_us(100); //no delay en las int
+    }
+    //interrupcion del TMR0
+    if(T0IF){
+        //aqui debo llamar al multiplexado o inc una variable como bandera
+        T0IF = 0;
+        TMR0 = 56;
+        
+        RE0 = 0;
+        RE2 = 0;
+        if (transistores == 0){
+            PORTD = 0x00;
+            RE2 = 0;
+            RE1 = 1;
+            PORTD = tabla_7seg[pot2];
+            transistores = 1;
+           
+        } else{
+            PORTD = 0x00;
+            RE2 = 1;
+            //RE1 = 0;
+            PORTD = tabla_7seg[pot3];
+            transistores = 0;
+            
+            
+        }
+        
+        
+        INTCONbits.T0IF = 0;
     }
 }
 
@@ -85,25 +122,53 @@ void __interrupt() isr(void){
 void main(void){
     setup();
     while(1){
-        
+        pot2 = pot1 & 0b00001111;
+        pot3 = swap(pot1) & 0b00001111;
+        if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
+            __delay_us(100);     //volver a encenderlo
+            ADCON0bits.GO = 1;
+        }
+        if(pot1 > PORTC) {
+            PORTBbits.RB7 = 1;}
+        else {
+            RB7 = 0;
+        }
     }   
 }
 /*==============================================================================
                                     FUNCIONES
  =============================================================================*/
-
-void multiplexado(void){
- 
-    PORTE = 0x00; //Para limpiar el puerto de transistores
-    transistores = 0b00000000; //para que se vaya al disp1
-    if (transistores == 0b00000000){
-        display1();
-    }
-    if (transistores == 0b00000001){ //para que se vaya al disp2
-        display2();
-    }
-    return;
-}
+//
+//void multiplexado(void){
+// 
+//    //PORTE = 0x00; //Para limpiar el puerto de transistores
+//    transistores = 0b00000000; //para que se vaya al disp1
+//    if (transistores == 0b00000000){
+//        display1();
+//    }
+//    else { //para que se vaya al disp2
+//       display2();
+//    }
+//    return;
+//}
+//
+//void display1(void){
+//    PORTEbits.RE0 = 1; //apagar y encender los bits correspondientes
+//    PORTEbits.RE1 = 0;
+//    //PORTD = 0x00;  //para inicializar el puertoa
+//    //PORTD = tabla_7seg[pot1]; //traducir las centenas llamando la pos del
+//    transistores = 0b00000001; //array, ahi cambia de transistor para el disp2
+//    return;
+//}
+//
+//void display2(void){
+//    PORTEbits.RE0 = 0;
+//    PORTEbits.RE1 = 1;
+//    //pot2 = swap(pot1);
+//    //PORTD = tabla_7seg[pot2];
+//    transistores = 0b00000000;
+//    return;
+//}
 
 char swap(char variable){
     return ((variable & 0x0F)<<4 | (variable & 0xF0)>>4);
@@ -127,7 +192,8 @@ void setup(void){
     TRISB7 = 0;
     TRISC = 0x00;
     TRISD = 0x00;
-    
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE1 = 0;
     //limpiar puertos
     PORTA = 0x00;
     PORTB = 0x00;
@@ -145,13 +211,22 @@ void setup(void){
     OSCCONbits.IRCF2 = 1;
     OSCCONbits.SCS = 1;  //internal oscillator is used for system clock
     
+    //configuramos el TMR0 para hacer el encendido y apagado rapido de los 7seg
+    OPTION_REGbits.T0CS = 0;     //oscilador interno
+    OPTION_REGbits.PSA = 0;      //prescaler asignado al timer0
+    OPTION_REGbits.PS0 = 1;      //prescaler tenga un valor 1:256
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS2 = 1;
+    TMR0 = 56;
+    
      //configurar interrupciones
     PIE1bits.ADIE = 1;      //enable de la int del ADC
     PIR1bits.ADIF = 0;      //limpiar la interrupcion del ADC
     INTCONbits.GIE = 1;     //habilita las interrupciones globales
     INTCONbits.PEIE = 1;    //periferical interrupts
-
-    
+    //interrupcion del timer0
+    INTCONbits.T0IE = 1;    //habilita la interrupcion del timer0
+    INTCONbits.T0IF = 0;    //limpia bit de int del timer 0
     //Configuracion de interrupcion del puerto B
     IOCBbits.IOCB0 = 1;     //Boton de escritura
     IOCBbits.IOCB1 = 1;     //Boton de lectura
@@ -160,6 +235,9 @@ void setup(void){
     
      //configurar el modulo ADC
     config_ADC(1);
+    transistores = 0;
+    
+    
     return;
 }
 

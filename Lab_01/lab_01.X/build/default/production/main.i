@@ -2676,21 +2676,67 @@ char tabla_7seg [16] = {0b00111111, 0b00000110, 0b01011011,
                        0b01101111, 0b01110111, 0b01111100,
                        0b00111001, 0b01011110, 0b01111001, 0b01110001};
 
+char pot1, pot2, pot3;
+char contador;
+char transistores = 0;
+
 
 
 void setup(void);
+char swap(char variable);
+void multiplexado(void);
+void display1(void);
+void display2(void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if (RBIF){
         if(RB0 == 0){
             PORTC++;
-            RBIF = 0;
+
         }
         if(RB1 == 0){
             PORTC--;
-            RBIF = 0;
+
         }
+            RBIF = 0;
+    }
+
+    if(ADIF){
+        if(ADCON0bits.CHS == 0){
+            pot1 = ADRESH;
+
+        }
+        ADIF = 0;
+
+    }
+
+    if(T0IF){
+
+        T0IF = 0;
+        TMR0 = 56;
+
+        RE0 = 0;
+        RE2 = 0;
+        if (transistores == 0){
+            PORTD = 0x00;
+            RE2 = 0;
+            RE1 = 1;
+            PORTD = tabla_7seg[pot2];
+            transistores = 1;
+
+        } else{
+            PORTD = 0x00;
+            RE2 = 1;
+
+            PORTD = tabla_7seg[pot3];
+            transistores = 0;
+
+
+        }
+
+
+        INTCONbits.T0IF = 0;
     }
 }
 
@@ -2700,13 +2746,22 @@ void __attribute__((picinterrupt(("")))) isr(void){
 void main(void){
     setup();
     while(1){
-
+        pot2 = pot1 & 0b00001111;
+        pot3 = swap(pot1) & 0b00001111;
+        if (ADCON0bits.GO == 0){
+            _delay((unsigned long)((100)*(4000000/4000000.0)));
+            ADCON0bits.GO = 1;
+        }
+        if(pot1 > PORTC) {
+            PORTBbits.RB7 = 1;}
+        else {
+            RB7 = 0;
+        }
     }
-
-
-
-
-
+}
+# 173 "main.c"
+char swap(char variable){
+    return ((variable & 0x0F)<<4 | (variable & 0xF0)>>4);
 }
 
 
@@ -2727,7 +2782,8 @@ void setup(void){
     TRISB7 = 0;
     TRISC = 0x00;
     TRISD = 0x00;
-
+    TRISEbits.TRISE2 = 0;
+    TRISEbits.TRISE1 = 0;
 
     PORTA = 0x00;
     PORTB = 0x00;
@@ -2746,12 +2802,21 @@ void setup(void){
     OSCCONbits.SCS = 1;
 
 
+    OPTION_REGbits.T0CS = 0;
+    OPTION_REGbits.PSA = 0;
+    OPTION_REGbits.PS0 = 1;
+    OPTION_REGbits.PS1 = 1;
+    OPTION_REGbits.PS2 = 1;
+    TMR0 = 56;
+
+
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF = 0;
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
 
-
+    INTCONbits.T0IE = 1;
+    INTCONbits.T0IF = 0;
 
     IOCBbits.IOCB0 = 1;
     IOCBbits.IOCB1 = 1;
@@ -2760,5 +2825,8 @@ void setup(void){
 
 
     config_ADC(1);
+    transistores = 0;
+
+
     return;
 }
