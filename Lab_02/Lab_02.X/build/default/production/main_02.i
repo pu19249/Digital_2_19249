@@ -2624,7 +2624,191 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 # 11 "main_02.c" 2
-# 26 "main_02.c"
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 12 "main_02.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
+
+
+
+
+
+
+typedef unsigned short wchar_t;
+
+
+
+
+
+
+
+typedef struct {
+ int rem;
+ int quot;
+} div_t;
+typedef struct {
+ unsigned rem;
+ unsigned quot;
+} udiv_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef struct {
+ unsigned long quot;
+ unsigned long rem;
+} uldiv_t;
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+
+
+
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+
+
+
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+# 104 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+# 13 "main_02.c" 2
+# 28 "main_02.c"
 # 1 "./config_ADC.h" 1
 # 13 "./config_ADC.h"
 #pragma config FOSC = INTRC_NOCLKOUT
@@ -2632,12 +2816,12 @@ typedef uint16_t uintptr_t;
 
 
 void config_ADC(char frec);
-# 26 "main_02.c" 2
+# 28 "main_02.c" 2
 
 # 1 "./config_USART.h" 1
 # 15 "./config_USART.h"
 void config_USART(void);
-# 27 "main_02.c" 2
+# 29 "main_02.c" 2
 
 # 1 "./LCD_8b.h" 1
 # 63 "./LCD_8b.h"
@@ -2658,7 +2842,7 @@ void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
-# 28 "main_02.c" 2
+# 30 "main_02.c" 2
 
 
 
@@ -2696,13 +2880,17 @@ void Lcd_Shift_Left(void);
 
 
 char voltaje1, voltaje2;
+char voltaje_b, voltaje_c;
 char dividendo, centenas, residuo, decenas, unidades;
+
+
 
 
 
 
 void setup(void);
 char division (char dividendo);
+char voltajes (char voltajes_1);
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
@@ -2710,34 +2898,37 @@ void __attribute__((picinterrupt(("")))) isr(void){
         if(ADCON0bits.CHS == 0){
             ADCON0bits.CHS = 1;
             voltaje1 = ADRESH;
-
         }
         else if(ADCON0bits.CHS == 1){
             ADCON0bits.CHS = 0;
             voltaje2 = ADRESH;
-
         }
     }
+    ADIF = 0;
 }
-# 97 "main_02.c"
+# 102 "main_02.c"
 void main(void){
     setup();
     char a;
-
     Lcd_Init();
     Lcd_Clear();
+    char buffer[20];
+    char dato;
+
     while(1){
+    dato = voltaje1;
+    sprintf(buffer, "%d", voltaje1);
+
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("S_1:  S_2:  S_3:");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("0.00");
+    Lcd_Write_Char(buffer);
     _delay((unsigned long)((2000)*(4000000/4000.0)));
 
 
-    if (ADCON0bits.GO == 0){
             _delay((unsigned long)((100)*(4000000/4000000.0)));
             ADCON0bits.GO = 1;
-        }
+
     }
 
     return;
@@ -2750,6 +2941,11 @@ char division (char dividendo){
     unidades = residuo%10;
 
     return dividendo;
+}
+
+char voltajes(char voltaje_1){
+    char voltaje_a;
+    return voltaje_a = division(voltaje_1);
 }
 
 

@@ -10,46 +10,8 @@
 #include "LCD_8b.h"
 
 void Lcd_Port(char a) {
-    PORTD = a;        
-//    if (a & 1)
-//        D0 = 1;
-//    else
-//        D0 = 0;
-//    
-//    if (a & 2)
-//        D1 = 1;
-//    else
-//        D1 = 0;
-//    
-//    if (a & 3)
-//        D2 = 1;
-//    else
-//        D2 = 0;
-//    
-//    if (a & 4)
-//        D3 = 1;
-//    else
-//        D3 = 0;
-//    
-//    if (a & 5)
-//        D4 = 1;
-//    else
-//        D4 = 0;
-//
-//    if (a & 6)
-//        D5 = 1;
-//    else
-//        D5 = 0;
-//
-//    if (a & 7)
-//        D6 = 1;
-//    else
-//        D6 = 0;
-//
-//    if (a & 8)
-//        D7 = 1;
-//    else
-//        D7 = 0;
+    PORTD = a;        //Para que tome el valor del puerto
+
 }
 
 void Lcd_Cmd(char a) {

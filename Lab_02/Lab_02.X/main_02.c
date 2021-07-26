@@ -9,17 +9,19 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include <stdio.h> //para que funcione el sprintf
+#include <stdlib.h>
 #include <pic16f887.h> 
 #define _XTAL_FREQ 4000000
 
 #define RS RE0
 #define EN RE2
 #define D0 RD0
-#define D1 RB1
+#define D1 RD1
 #define D2 RD2
 #define D3 RD3
 #define D4 RD4
-#define D5 RB5
+#define D5 RD5
 #define D6 RD6
 #define D7 RD7
 
@@ -62,13 +64,17 @@
  =============================================================================*/
 
 char voltaje1, voltaje2;
+char voltaje_b, voltaje_c;
 char dividendo, centenas, residuo, decenas, unidades;
+//char buffer[20];
+//char dato;
 
 /*==============================================================================
                         INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
 void setup(void);
 char division (char dividendo);
+char voltajes (char voltajes_1);
 
 void __interrupt() isr(void){
     //interrupcion del ADC para los dos pot
@@ -76,14 +82,13 @@ void __interrupt() isr(void){
         if(ADCON0bits.CHS == 0){
             ADCON0bits.CHS = 1;
             voltaje1 = ADRESH;
-            
         }
         else if(ADCON0bits.CHS == 1){
             ADCON0bits.CHS = 0;
-            voltaje2 = ADRESH;
-            
+            voltaje2 = ADRESH; 
         }
     }
+    ADIF = 0;
 }
 
 /*==============================================================================
@@ -97,23 +102,27 @@ void __interrupt() isr(void){
 void main(void){
     setup();
     char a;
-    //RE1 = 0;
     Lcd_Init(); //aqui la LCD aun esta apagada
     Lcd_Clear();
+    char buffer[20];
+    char dato;
+    
     while(1){   
+    dato = voltaje1;
+    sprintf(buffer, "%d", voltaje1);
+           
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("S_1:  S_2:  S_3:");
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("0.00");
+    Lcd_Write_Char(buffer);
     __delay_ms(2000);
- 
-     
+         
     if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
             __delay_us(100);     //volver a encenderlo
             ADCON0bits.GO = 1;
         }
     }
-    
+        
     return;
 }
 
@@ -126,6 +135,10 @@ char division (char dividendo){
     return dividendo;
 } 
 
+char voltajes(char voltaje_1){
+    char voltaje_a;
+    return voltaje_a = division(voltaje_1);
+}
 
 /*==============================================================================
                          CONFIGURACION DEL PIC

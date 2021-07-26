@@ -2518,7 +2518,7 @@ void Lcd_Shift_Left(void);
 
 void Lcd_Port(char a) {
     PORTD = a;
-# 53 "LCD_8b.c"
+
 }
 
 void Lcd_Cmd(char a) {
