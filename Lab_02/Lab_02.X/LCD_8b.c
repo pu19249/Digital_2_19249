@@ -39,13 +39,13 @@ void Lcd_Set_Cursor(char a, char b) {
     } else if (a == 2) {
         temp = 0xC0 + b - 1;
         z = temp >> 4;
-        y = temp & 0xF0; //esta linea cambie
+        y = temp & 0xF0; //esta linea cambie para que vaya a la segunda linea
         Lcd_Cmd(z);
         Lcd_Cmd(y);
     }
 }
 
-void Lcd_Init(void) {
+void Lcd_Init(void) { //guiarse con el datasheet initalization 8bits
     Lcd_Port(0x00);
     __delay_ms(20);
     Lcd_Cmd(0x30); //se cambia de 03 a 30 para iniciar en 8 bits
@@ -65,7 +65,7 @@ void Lcd_Init(void) {
 
 void Lcd_Write_Char(char a) {
     char temp, y;
-    temp = a;// & 0x0F;
+    temp = a;// & 0x0F; comento todo esto para que ya no haga los corrimientos
     y = temp;// & 0xF0;
     RS = 1;// => RS = 1 es para que lea caracteres
     Lcd_Port(y);// >> 4); //Data transfer
