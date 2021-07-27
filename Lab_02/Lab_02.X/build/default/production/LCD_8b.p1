@@ -307,205 +307,205 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LCD_8b.c: 28: }
 [e :UE 140 ]
 }
-"30
-[; ;LCD_8b.c: 30: void Lcd_Set_Cursor(char a, char b) {
+"43
+[; ;LCD_8b.c: 43: void Lcd_Set_Cursor(char a, char b) {
 [v _Lcd_Set_Cursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _Lcd_Set_Cursor ]
 [v _a `uc ~T0 @X0 1 r1 ]
 [v _b `uc ~T0 @X0 1 r2 ]
 [f ]
-"31
-[; ;LCD_8b.c: 31:     char temp, z, y;
+"44
+[; ;LCD_8b.c: 44:     char temp, z, y;
 [v _temp `uc ~T0 @X0 1 a ]
 [v _z `uc ~T0 @X0 1 a ]
 [v _y `uc ~T0 @X0 1 a ]
-"32
-[; ;LCD_8b.c: 32:     if (a == 1) {
+"45
+[; ;LCD_8b.c: 45:     if (a == 1) {
 [e $ ! == -> _a `i -> 1 `i 142  ]
 {
-"33
-[; ;LCD_8b.c: 33:         temp = 0x80 + b - 1;
+"46
+[; ;LCD_8b.c: 46:         temp = 0x80 + b - 1;
 [e = _temp -> - + -> 128 `i -> _b `i -> 1 `i `uc ]
-"34
-[; ;LCD_8b.c: 34:         z = temp >> 4;
+"47
+[; ;LCD_8b.c: 47:         z = temp >> 4;
 [e = _z -> >> -> _temp `i -> 4 `i `uc ]
-"35
-[; ;LCD_8b.c: 35:         y = temp & 0x0F;
+"48
+[; ;LCD_8b.c: 48:         y = temp & 0x0F;
 [e = _y -> & -> _temp `i -> 15 `i `uc ]
-"36
-[; ;LCD_8b.c: 36:         Lcd_Cmd(z);
+"49
+[; ;LCD_8b.c: 49:         Lcd_Cmd(z);
 [e ( _Lcd_Cmd (1 _z ]
-"38
-[; ;LCD_8b.c: 38:         Lcd_Cmd(y);
+"51
+[; ;LCD_8b.c: 51:         Lcd_Cmd(y);
 [e ( _Lcd_Cmd (1 _y ]
-"39
-[; ;LCD_8b.c: 39:     } else if (a == 2) {
+"52
+[; ;LCD_8b.c: 52:     } else if (a == 2) {
 }
 [e $U 143  ]
 [e :U 142 ]
 [e $ ! == -> _a `i -> 2 `i 144  ]
 {
-"40
-[; ;LCD_8b.c: 40:         temp = 0xC0 + b - 1;
+"53
+[; ;LCD_8b.c: 53:         temp = 0xC0 + b - 1;
 [e = _temp -> - + -> 192 `i -> _b `i -> 1 `i `uc ]
-"41
-[; ;LCD_8b.c: 41:         z = temp >> 4;
+"54
+[; ;LCD_8b.c: 54:         z = temp >> 4;
 [e = _z -> >> -> _temp `i -> 4 `i `uc ]
-"42
-[; ;LCD_8b.c: 42:         y = temp & 0xF0;
+"55
+[; ;LCD_8b.c: 55:         y = temp & 0xF0;
 [e = _y -> & -> _temp `i -> 240 `i `uc ]
-"43
-[; ;LCD_8b.c: 43:         Lcd_Cmd(z);
+"56
+[; ;LCD_8b.c: 56:         Lcd_Cmd(z);
 [e ( _Lcd_Cmd (1 _z ]
-"44
-[; ;LCD_8b.c: 44:         Lcd_Cmd(y);
+"57
+[; ;LCD_8b.c: 57:         Lcd_Cmd(y);
 [e ( _Lcd_Cmd (1 _y ]
-"45
-[; ;LCD_8b.c: 45:     }
+"58
+[; ;LCD_8b.c: 58:     }
 }
 [e :U 144 ]
 [e :U 143 ]
-"46
-[; ;LCD_8b.c: 46: }
+"59
+[; ;LCD_8b.c: 59: }
 [e :UE 141 ]
 }
-"48
-[; ;LCD_8b.c: 48: void Lcd_Init(void) {
+"61
+[; ;LCD_8b.c: 61: void Lcd_Init(void) {
 [v _Lcd_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _Lcd_Init ]
 [f ]
-"49
-[; ;LCD_8b.c: 49:     Lcd_Port(0x00);
+"62
+[; ;LCD_8b.c: 62:     Lcd_Port(0x00);
 [e ( _Lcd_Port (1 -> -> 0 `i `uc ]
-"50
-[; ;LCD_8b.c: 50:     _delay((unsigned long)((20)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"51
-[; ;LCD_8b.c: 51:     Lcd_Cmd(0x30);
-[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
-"52
-[; ;LCD_8b.c: 52:     _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"53
-[; ;LCD_8b.c: 53:     Lcd_Cmd(0x30);
-[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
-"54
-[; ;LCD_8b.c: 54:     _delay((unsigned long)((200)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"55
-[; ;LCD_8b.c: 55:     Lcd_Cmd(0x30);
-[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
-"57
-[; ;LCD_8b.c: 57:     Lcd_Cmd(0x3C);
-[e ( _Lcd_Cmd (1 -> -> 60 `i `uc ]
-"59
-[; ;LCD_8b.c: 59:     Lcd_Cmd(0x08);
-[e ( _Lcd_Cmd (1 -> -> 8 `i `uc ]
-"61
-[; ;LCD_8b.c: 61:     Lcd_Cmd(0x01);
-[e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
 "63
-[; ;LCD_8b.c: 63:     Lcd_Cmd(0x06);
-[e ( _Lcd_Cmd (1 -> -> 6 `i `uc ]
+[; ;LCD_8b.c: 63:     _delay((unsigned long)((20)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "64
-[; ;LCD_8b.c: 64: }
+[; ;LCD_8b.c: 64:     Lcd_Cmd(0x30);
+[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
+"65
+[; ;LCD_8b.c: 65:     _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"66
+[; ;LCD_8b.c: 66:     Lcd_Cmd(0x30);
+[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
+"67
+[; ;LCD_8b.c: 67:     _delay((unsigned long)((200)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"68
+[; ;LCD_8b.c: 68:     Lcd_Cmd(0x30);
+[e ( _Lcd_Cmd (1 -> -> 48 `i `uc ]
+"70
+[; ;LCD_8b.c: 70:     Lcd_Cmd(0x3C);
+[e ( _Lcd_Cmd (1 -> -> 60 `i `uc ]
+"72
+[; ;LCD_8b.c: 72:     Lcd_Cmd(0x08);
+[e ( _Lcd_Cmd (1 -> -> 8 `i `uc ]
+"74
+[; ;LCD_8b.c: 74:     Lcd_Cmd(0x01);
+[e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
+"76
+[; ;LCD_8b.c: 76:     Lcd_Cmd(0x06);
+[e ( _Lcd_Cmd (1 -> -> 6 `i `uc ]
+"77
+[; ;LCD_8b.c: 77: }
 [e :UE 145 ]
 }
-"66
-[; ;LCD_8b.c: 66: void Lcd_Write_Char(char a) {
+"79
+[; ;LCD_8b.c: 79: void Lcd_Write_Char(char a) {
 [v _Lcd_Write_Char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Lcd_Write_Char ]
 [v _a `uc ~T0 @X0 1 r1 ]
 [f ]
-"67
-[; ;LCD_8b.c: 67:     char temp, y;
+"80
+[; ;LCD_8b.c: 80:     char temp, y;
 [v _temp `uc ~T0 @X0 1 a ]
 [v _y `uc ~T0 @X0 1 a ]
-"68
-[; ;LCD_8b.c: 68:     temp = a;
+"81
+[; ;LCD_8b.c: 81:     temp = a;
 [e = _temp _a ]
-"69
-[; ;LCD_8b.c: 69:     y = temp;
+"82
+[; ;LCD_8b.c: 82:     y = temp;
 [e = _y _temp ]
-"70
-[; ;LCD_8b.c: 70:     PORTEbits.RE0 = 1;
+"83
+[; ;LCD_8b.c: 83:     PORTEbits.RE0 = 1;
 [e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-"71
-[; ;LCD_8b.c: 71:     Lcd_Port(y);
+"84
+[; ;LCD_8b.c: 84:     Lcd_Port(y);
 [e ( _Lcd_Port (1 _y ]
-"72
-[; ;LCD_8b.c: 72:     PORTEbits.RE2 = 1;
+"85
+[; ;LCD_8b.c: 85:     PORTEbits.RE2 = 1;
 [e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-"73
-[; ;LCD_8b.c: 73:     _delay((unsigned long)((40)*(4000000/4000000.0)));
+"86
+[; ;LCD_8b.c: 86:     _delay((unsigned long)((40)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 40 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"74
-[; ;LCD_8b.c: 74:     PORTEbits.RE2 = 0;
+"87
+[; ;LCD_8b.c: 87:     PORTEbits.RE2 = 0;
 [e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-"79
-[; ;LCD_8b.c: 79: }
+"92
+[; ;LCD_8b.c: 92: }
 [e :UE 146 ]
 }
-"81
-[; ;LCD_8b.c: 81: void Lcd_Write_String(char *a) {
+"94
+[; ;LCD_8b.c: 94: void Lcd_Write_String(char *a) {
 [v _Lcd_Write_String `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _Lcd_Write_String ]
 [v _a `*uc ~T0 @X0 1 r1 ]
 [f ]
-"82
-[; ;LCD_8b.c: 82:     int i;
+"95
+[; ;LCD_8b.c: 95:     int i;
 [v _i `i ~T0 @X0 1 a ]
-"83
-[; ;LCD_8b.c: 83:     for (i = 0; a[i] != '\0'; i++)
+"96
+[; ;LCD_8b.c: 96:     for (i = 0; a[i] != '\0'; i++)
 {
 [e = _i -> 0 `i ]
 [e $U 151  ]
 [e :U 148 ]
-"84
-[; ;LCD_8b.c: 84:         Lcd_Write_Char(a[i]);
+"97
+[; ;LCD_8b.c: 97:         Lcd_Write_Char(a[i]);
 [e ( _Lcd_Write_Char (1 *U + _a * -> _i `x -> -> # *U _a `i `x ]
 [e ++ _i -> 1 `i ]
 [e :U 151 ]
 [e $ != -> *U + _a * -> _i `x -> -> # *U _a `i `x `ui -> 0 `ui 148  ]
 [e :U 149 ]
 }
-"85
-[; ;LCD_8b.c: 85: }
+"98
+[; ;LCD_8b.c: 98: }
 [e :UE 147 ]
 }
-"87
-[; ;LCD_8b.c: 87: void Lcd_Shift_Right(void) {
+"100
+[; ;LCD_8b.c: 100: void Lcd_Shift_Right(void) {
 [v _Lcd_Shift_Right `(v ~T0 @X0 1 ef ]
 {
 [e :U _Lcd_Shift_Right ]
 [f ]
-"88
-[; ;LCD_8b.c: 88:     Lcd_Cmd(0x01);
+"101
+[; ;LCD_8b.c: 101:     Lcd_Cmd(0x01);
 [e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
-"89
-[; ;LCD_8b.c: 89:     Lcd_Cmd(0x0C);
+"102
+[; ;LCD_8b.c: 102:     Lcd_Cmd(0x0C);
 [e ( _Lcd_Cmd (1 -> -> 12 `i `uc ]
-"90
-[; ;LCD_8b.c: 90: }
+"103
+[; ;LCD_8b.c: 103: }
 [e :UE 152 ]
 }
-"92
-[; ;LCD_8b.c: 92: void Lcd_Shift_Left(void) {
+"105
+[; ;LCD_8b.c: 105: void Lcd_Shift_Left(void) {
 [v _Lcd_Shift_Left `(v ~T0 @X0 1 ef ]
 {
 [e :U _Lcd_Shift_Left ]
 [f ]
-"93
-[; ;LCD_8b.c: 93:     Lcd_Cmd(0x01);
+"106
+[; ;LCD_8b.c: 106:     Lcd_Cmd(0x01);
 [e ( _Lcd_Cmd (1 -> -> 1 `i `uc ]
-"94
-[; ;LCD_8b.c: 94:     Lcd_Cmd(0x08);
+"107
+[; ;LCD_8b.c: 107:     Lcd_Cmd(0x08);
 [e ( _Lcd_Cmd (1 -> -> 8 `i `uc ]
-"95
-[; ;LCD_8b.c: 95: }
+"108
+[; ;LCD_8b.c: 108: }
 [e :UE 153 ]
 }

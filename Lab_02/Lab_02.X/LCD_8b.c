@@ -27,6 +27,19 @@ void Lcd_Clear(void) {
     Lcd_Cmd(1);
 }
 
+
+//void Lcd_Set_Cursor(char a, char b) {
+//   char temp;
+//    if (a == 1) {
+//        temp = 0x80 + b - 1;
+//        Lcd_Cmd(temp);
+//    } else if (a == 2) {
+//        temp = 0xC0 + b - 1;
+//        Lcd_Cmd(temp);
+//    }
+//}
+
+
 void Lcd_Set_Cursor(char a, char b) {
     char temp, z, y;
     if (a == 1) {

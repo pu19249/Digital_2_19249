@@ -105,17 +105,27 @@ void main(void){
     Lcd_Init(); //aqui la LCD aun esta apagada
     Lcd_Clear(); //limpio lo que tenga la LCD siempre llamandolo de la lib
     char buffer[20]; //esta variable almacenara mi voltaje en un string
+    char buffer1[20];
+    char dato1;
     char dato; //el dato que deseo almacenar en un str
+    Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
+    Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
     
     while(1){   
     dato = voltaje1; //obtengo el valor del ADRESH en la int
-    sprintf(buffer, "%d", voltaje1); //aqui obtengo el valor en decimal
-           
-    Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
-    Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
-    Lcd_Set_Cursor(2,1); //ahora ir a la segunda linea
-    Lcd_Write_Char(buffer); //mostrar lo que esta en mi string anterior
-    __delay_ms(2000); //un delay para asegurar que la busy flag permita recibir
+    dato1 = voltaje2;
+    sprintf(buffer, "%d   ", voltaje1); //aqui obtengo el valor en decimal
+    sprintf(buffer1, "%d", voltaje2);
+    
+//    Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
+//    Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
+    
+    Lcd_Set_Cursor(2,2); //ahora ir a la segunda linea
+    Lcd_Write_String(buffer); //mostrar lo que esta en mi string anterior
+//    Lcd_Set_Cursor(2,10);
+    Lcd_Write_String(buffer1);
+    
+    __delay_ms(1000); //un delay para asegurar que la busy flag permita recibir
          
     if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
             __delay_us(100);     //volver a encenderlo

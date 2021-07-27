@@ -2909,26 +2909,36 @@ void __attribute__((picinterrupt(("")))) isr(void){
 # 102 "main_02.c"
 void main(void){
     setup();
-    char a;
+
     Lcd_Init();
     Lcd_Clear();
     char buffer[20];
+    char buffer1[20];
+    char dato1;
     char dato;
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("S_1:  S_2:  S_3:");
 
     while(1){
     dato = voltaje1;
-    sprintf(buffer, "%d", voltaje1);
-
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("S_1:  S_2:  S_3:");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_Char(buffer);
-    _delay((unsigned long)((2000)*(4000000/4000.0)));
+    dato1 = voltaje2;
+    sprintf(buffer, "%d   ", voltaje1);
+    sprintf(buffer1, "%d", voltaje2);
 
 
+
+
+    Lcd_Set_Cursor(2,2);
+    Lcd_Write_String(buffer);
+
+    Lcd_Write_String(buffer1);
+
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
+
+    if (ADCON0bits.GO == 0){
             _delay((unsigned long)((100)*(4000000/4000000.0)));
             ADCON0bits.GO = 1;
-
+        }
     }
 
     return;
@@ -2947,7 +2957,6 @@ char voltajes(char voltaje_1){
     char voltaje_a;
     return voltaje_a = division(voltaje_1);
 }
-
 
 
 

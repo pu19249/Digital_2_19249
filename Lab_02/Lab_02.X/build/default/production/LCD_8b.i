@@ -2533,7 +2533,7 @@ void Lcd_Clear(void) {
     Lcd_Cmd(0);
     Lcd_Cmd(1);
 }
-
+# 43 "LCD_8b.c"
 void Lcd_Set_Cursor(char a, char b) {
     char temp, z, y;
     if (a == 1) {
