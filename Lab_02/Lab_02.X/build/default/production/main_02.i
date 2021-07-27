@@ -2881,20 +2881,28 @@ void Lcd_Shift_Left(void);
 
 char voltaje1, voltaje2;
 char voltaje_b, voltaje_c;
-char dividendo, centenas, residuo, decenas, unidades;
+
 
 
 
 char dato1;
 char dato;
 char buffer[20];
-    char buffer1[20];
-
+char buffer1[20];
+char buffer2[2];
+char buffer3[2];
+char buffer4[2];
+char buffer5[2];
+char buffer6[2];
+char buffer7[2];
 
 
 
 void setup(void);
-char division (char dividendo);
+char division1 (char dividendo);
+char division2 (char dividendo);
+char division3 (char dividendo);
+
 char voltajes (char voltajes_1);
 void mensaje(void);
 void putch(char dato);
@@ -2914,7 +2922,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
     }
     ADIF = 0;
 }
-# 110 "main_02.c"
+# 118 "main_02.c"
 void main(void){
     setup();
 
@@ -2928,15 +2936,40 @@ void main(void){
     Lcd_Write_String("S_1:  S_2:  S_3:");
 
     while(1){
-    dato = voltaje1;
-    dato1 = voltaje2;
-    sprintf(buffer, "%d   ", voltaje1);
-    sprintf(buffer1, "%d", voltaje2);
+    dato = voltaje1*0.0196;
+    dato1 = voltaje2*0.0196;
+    sprintf(buffer, "%d", dato);
+    sprintf(buffer1, "%d", dato1);
 
-    Lcd_Set_Cursor(2,2);
-    Lcd_Write_String(buffer);
 
-    Lcd_Write_String(buffer1);
+
+    char centenas1 = division1(dato);
+    char decenas1 = division2(dato);
+    char unidades1 = division3(dato);
+
+    char centenas2 = division1(dato1);
+    char decenas2 = division2(dato1);
+    char unidades2 = division3(dato1);
+    sprintf(buffer2, "%d", centenas1);
+    sprintf(buffer3, "%d", decenas1);
+    sprintf(buffer4, "%d", unidades1);
+    sprintf(buffer5, "%d", centenas2);
+    sprintf(buffer6, "%d", decenas2);
+    sprintf(buffer7, "%d", unidades2);
+
+
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String(buffer4);
+    Lcd_Write_String(".");
+    Lcd_Write_String(buffer3);
+    Lcd_Write_String(buffer2);
+    Lcd_Write_String("   ");
+    Lcd_Write_String(buffer7);
+    Lcd_Write_String(".");
+    Lcd_Write_String(buffer6);
+    Lcd_Write_String(buffer5);
+
+
 
 
 
@@ -2950,14 +2983,33 @@ void main(void){
     return;
 }
 
-char division (char dividendo){
-    centenas = dividendo/100;
-    residuo = dividendo%100;
-    decenas = residuo/10;
-    unidades = residuo%10;
+char division1 (char dividendo){
+    char centenas1 = dividendo/100;
+    char residuo1 = dividendo%100;
+    char decenas1 = residuo1/10;
+    char unidades1 = residuo1%10;
 
-    return dividendo;
+    return centenas1;
 }
+
+char division2 (char dividendo){
+    char centenas2 = dividendo/100;
+    char residuo2 = dividendo%100;
+    char decenas2 = residuo2/10;
+    char unidades2 = residuo2%10;
+
+    return decenas2;
+}
+
+char division3 (char dividendo){
+    char centenas3 = dividendo/100;
+    char residuo3 = dividendo%100;
+    char decenas3 = residuo3/10;
+    char unidades3 = residuo3%10;
+
+    return unidades3;
+}
+
 
 char voltajes(char voltaje_1){
     char voltaje_a;
@@ -2967,13 +3019,20 @@ char voltajes(char voltaje_1){
 void mensaje(void){
     _delay((unsigned long)((500)*(4000000/4000.0)));
     printf("\rVoltaje1: ");
-    printf(buffer);
+    printf(buffer4);
+    printf(".");
+    printf(buffer3);
+    printf(buffer2);
     printf("\r\r");
     _delay((unsigned long)((500)*(4000000/4000.0)));
     printf("Voltaje2: ");
-    printf(buffer1);
+    printf(buffer7);
+    printf(".");
+    printf(buffer6);
+    printf(buffer5);
     printf("\r-----------");
     _delay((unsigned long)((500)*(4000000/4000.0)));
+    while (RCIF == 0);
 
     return;
 }
