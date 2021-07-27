@@ -2885,12 +2885,20 @@ char dividendo, centenas, residuo, decenas, unidades;
 
 
 
+char dato1;
+char dato;
+char buffer[20];
+    char buffer1[20];
+
 
 
 
 void setup(void);
 char division (char dividendo);
 char voltajes (char voltajes_1);
+void mensaje(void);
+void putch(char dato);
+
 
 void __attribute__((picinterrupt(("")))) isr(void){
 
@@ -2906,16 +2914,16 @@ void __attribute__((picinterrupt(("")))) isr(void){
     }
     ADIF = 0;
 }
-# 102 "main_02.c"
+# 110 "main_02.c"
 void main(void){
     setup();
 
     Lcd_Init();
     Lcd_Clear();
-    char buffer[20];
-    char buffer1[20];
-    char dato1;
-    char dato;
+
+
+
+
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("S_1:  S_2:  S_3:");
 
@@ -2925,20 +2933,18 @@ void main(void){
     sprintf(buffer, "%d   ", voltaje1);
     sprintf(buffer1, "%d", voltaje2);
 
-
-
-
     Lcd_Set_Cursor(2,2);
     Lcd_Write_String(buffer);
 
     Lcd_Write_String(buffer1);
 
-    _delay((unsigned long)((1000)*(4000000/4000.0)));
+
 
     if (ADCON0bits.GO == 0){
             _delay((unsigned long)((100)*(4000000/4000000.0)));
             ADCON0bits.GO = 1;
         }
+    mensaje();
     }
 
     return;
@@ -2958,6 +2964,24 @@ char voltajes(char voltaje_1){
     return voltaje_a = division(voltaje_1);
 }
 
+void mensaje(void){
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    printf("\rVoltaje1: ");
+    printf(buffer);
+    printf("\r\r");
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    printf("Voltaje2: ");
+    printf(buffer1);
+    printf("\r-----------");
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+
+    return;
+}
+void putch(char dato){
+    while(TXIF == 0);
+    TXREG = dato;
+    return;
+}
 
 
 

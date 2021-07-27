@@ -69,12 +69,20 @@ char dividendo, centenas, residuo, decenas, unidades;
 //char buffer[20];
 //char dato;
 
+char dato1;
+char dato; //el dato que deseo almacenar en un str
+char buffer[20]; //esta variable almacenara mi voltaje en un string
+    char buffer1[20];
+
 /*==============================================================================
                         INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
 void setup(void);
 char division (char dividendo);
 char voltajes (char voltajes_1);
+void mensaje(void);
+void putch(char dato);
+
 
 void __interrupt() isr(void){
     //interrupcion del ADC para los dos pot
@@ -104,10 +112,10 @@ void main(void){
     //char a;
     Lcd_Init(); //aqui la LCD aun esta apagada
     Lcd_Clear(); //limpio lo que tenga la LCD siempre llamandolo de la lib
-    char buffer[20]; //esta variable almacenara mi voltaje en un string
-    char buffer1[20];
-    char dato1;
-    char dato; //el dato que deseo almacenar en un str
+//    char buffer[20]; //esta variable almacenara mi voltaje en un string
+//    char buffer1[20];
+//    char dato1;
+//    char dato; //el dato que deseo almacenar en un str
     Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
     Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
     
@@ -116,23 +124,21 @@ void main(void){
     dato1 = voltaje2;
     sprintf(buffer, "%d   ", voltaje1); //aqui obtengo el valor en decimal
     sprintf(buffer1, "%d", voltaje2);
-    
-//    Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
-//    Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
-    
+        
     Lcd_Set_Cursor(2,2); //ahora ir a la segunda linea
     Lcd_Write_String(buffer); //mostrar lo que esta en mi string anterior
-//    Lcd_Set_Cursor(2,10);
+    //Lcd_Set_Cursor(2,10);
     Lcd_Write_String(buffer1);
     
-    __delay_ms(1000); //un delay para asegurar que la busy flag permita recibir
+    //__delay_ms(1000); //un delay para asegurar que la busy flag permita recibir
          
     if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
             __delay_us(100);     //volver a encenderlo
             ADCON0bits.GO = 1;
         }
+    mensaje();
     }
-        
+    
     return;
 }
 
@@ -150,6 +156,24 @@ char voltajes(char voltaje_1){
     return voltaje_a = division(voltaje_1);
 }
 
+void mensaje(void){
+    __delay_ms(500);
+    printf("\rVoltaje1: ");
+    printf(buffer);
+    printf("\r\r");
+    __delay_ms(500);
+    printf("Voltaje2: ");
+    printf(buffer1);
+    printf("\r-----------");
+    __delay_ms(500);
+//    while (RCIF == 0);      //espera una respuesta de la seleccion
+    return;
+}
+void putch(char dato){      //para la transmision
+    while(TXIF == 0);
+    TXREG = dato; //transmite los datos al recibir un printf en alguna  parte 
+    return;
+}
 /*==============================================================================
                          CONFIGURACION DEL PIC
  =============================================================================*/
