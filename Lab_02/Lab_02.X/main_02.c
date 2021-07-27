@@ -65,30 +65,18 @@
 
 char voltaje1, voltaje2;
 char voltaje_b, voltaje_c;
-//char dividendo, centenas, residuo, decenas, unidades;
-//char buffer[20];
-//char dato;
-
+char centenas, residuo, decenas, unidades;
+char contador;
 char dato1;
 char dato; //el dato que deseo almacenar en un str
-char buffer[20]; //esta variable almacenara mi voltaje en un string
-char buffer1[20];
-char buffer2[2];
-char buffer3[2];
-char buffer4[2];
-char buffer5[2];
-char buffer6[2];
-char buffer7[2];
+
 /*==============================================================================
                         INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
 void setup(void);
-char division1 (char dividendo);
-char division2 (char dividendo);
-char division3 (char dividendo);
-
-char voltajes (char voltajes_1);
+void division(char dividendo);
 void mensaje(void);
+void mensaje1(void);
 void putch(char dato);
 
 
@@ -110,129 +98,124 @@ void __interrupt() isr(void){
 /*==============================================================================
                              LOOP PRINCIPAL
  =============================================================================*/
-
-
-/*==============================================================================
-                             FUNCIONES
- =============================================================================*/
 void main(void){
     setup();
     //char a;
     Lcd_Init(); //aqui la LCD aun esta apagada
     Lcd_Clear(); //limpio lo que tenga la LCD siempre llamandolo de la lib
-//    char buffer[20]; //esta variable almacenara mi voltaje en un string
-//    char buffer1[20];
-//    char dato1;
-//    char dato; //el dato que deseo almacenar en un str
+
     Lcd_Set_Cursor(1,1); //ir a la primera linea en la posicion 1
     Lcd_Write_String("S_1:  S_2:  S_3:"); //imprimir los indicadores de voltaje
     
     while(1){   
-    dato = voltaje1*0.0196; //obtengo el valor del ADRESH en la int
-    dato1 = voltaje2*0.0196;
-    sprintf(buffer, "%d", dato); //aqui obtengo el valor en decimal
-    sprintf(buffer1, "%d", dato1);
-    
-    
-    
-    char centenas1 = division1(dato);
-    char decenas1 = division2(dato);
-    char unidades1 = division3(dato);
-    
-    char centenas2 = division1(dato1);
-    char decenas2 = division2(dato1);
-    char unidades2 = division3(dato1);
-    sprintf(buffer2, "%d", centenas1);
-    sprintf(buffer3, "%d", decenas1);
-    sprintf(buffer4, "%d", unidades1);
-    sprintf(buffer5, "%d", centenas2);
-    sprintf(buffer6, "%d", decenas2);
-    sprintf(buffer7, "%d", unidades2);
-    
-        
-    Lcd_Set_Cursor(2,1); //ahora ir a la segunda linea
-    Lcd_Write_String(buffer4); //mostrar lo que esta en mi string anterior
+       
+    division((voltaje1));
+    Lcd_Set_Cursor(2, 1);
+    Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
-    Lcd_Write_String(buffer3);
-    Lcd_Write_String(buffer2);
-    Lcd_Write_String("   ");
-    Lcd_Write_String(buffer7);
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("V ");
+    mensaje();
+    
+    division((voltaje2));
+    Lcd_Write_Char(centenas);
     Lcd_Write_String(".");
-    Lcd_Write_String(buffer6);
-    Lcd_Write_String(buffer5);
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
+    Lcd_Write_String("V ");
+    mensaje1();
+    
+    while(RCIF == 0);
+    if (RCREG == '+'){
+        contador++;
+        //if(contador == 255) contador = 0;
+        RCREG = 0;
+    }
+    if (RCREG == '-'){
+        contador--;
+        if(contador == 255) contador = 0;
+        RCREG = 0;
+    } else {
+        NULL;
+    }
+    
+    division(contador);
+    Lcd_Write_Char(centenas);
+    Lcd_Write_Char(decenas);
+    Lcd_Write_Char(unidades);
     
     
     
-    //__delay_ms(1000); //un delay para asegurar que la busy flag permita recibir
+    __delay_ms(1000); //un delay para asegurar que la busy flag permita recibir
          
     if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
             __delay_us(100);     //volver a encenderlo
             ADCON0bits.GO = 1;
         }
-    mensaje();
+    
     }
     
     return;
 }
 
-char division1 (char dividendo){
-    char centenas1 = dividendo/100;//esto me divide entre 100 y se queda con el entero
-    char residuo1 = dividendo%100; //el residuo de lo que estoy operando
-    char decenas1 = residuo1/10; 
-    char unidades1 = residuo1%10; //se queda con las unidades de las decenas
-    //las variables estan en todo el codigo entonces no necesito el return
-    return centenas1;
-} 
-
-char division2 (char dividendo){
-    char centenas2 = dividendo/100;//esto me divide entre 100 y se queda con el entero
-    char residuo2 = dividendo%100; //el residuo de lo que estoy operando
-    char decenas2 = residuo2/10; 
-    char unidades2 = residuo2%10; //se queda con las unidades de las decenas
-    //las variables estan en todo el codigo entonces no necesito el return
-    return decenas2;
-} 
-
-char division3 (char dividendo){
-    char centenas3 = dividendo/100;//esto me divide entre 100 y se queda con el entero
-    char residuo3 = dividendo%100; //el residuo de lo que estoy operando
-    char decenas3 = residuo3/10; 
-    char unidades3 = residuo3%10; //se queda con las unidades de las decenas
-    //las variables estan en todo el codigo entonces no necesito el return
-    return unidades3;
-} 
-
-
-char voltajes(char voltaje_1){
-    char voltaje_a;
-    return voltaje_a = division(voltaje_1);
-}
-
+/*==============================================================================
+                             FUNCIONES
+ =============================================================================*/
 void mensaje(void){
-    __delay_ms(500);
     printf("\rVoltaje1: ");
-    printf(buffer4);
+    __delay_ms(100);
+    TXREG = centenas;
+    __delay_ms(100);
     printf(".");
-    printf(buffer3);
-    printf(buffer2);
+    __delay_ms(100);
+    TXREG = decenas;
+    __delay_ms(100);
+    TXREG = unidades;
+    __delay_ms(100);
     printf("\r\r");
-    __delay_ms(500);
-    printf("Voltaje2: ");
-    printf(buffer7);
-    printf(".");
-    printf(buffer6);
-    printf(buffer5);
-    printf("\r-----------");
-    __delay_ms(500);
-    while (RCIF == 0);      //espera una respuesta de la seleccion
     
     return;
 }
+
+void mensaje1(void){
+    printf("Voltaje2: ");
+    __delay_ms(100);
+    TXREG = centenas;
+    __delay_ms(100);
+    printf(".");
+    __delay_ms(100);
+    TXREG = decenas;
+    __delay_ms(100);
+    TXREG = unidades;
+    __delay_ms(100);
+    printf("\r\r");
+    __delay_ms(100);
+    printf("----------");
+    __delay_ms(100);
+    printf("\rPara incrementar el contador presione +\ry para decrementar -\r");
+    
+    return;
+}
+
 void putch(char dato){      //para la transmision
     while(TXIF == 0);
     TXREG = dato; //transmite los datos al recibir un printf en alguna  parte 
     return;
 }
+
+void division (char dividendo){
+    
+    centenas = dividendo/100;//esto me divide entre 100 y se queda con el entero
+    residuo = dividendo%100; //el residuo de lo que estoy operando
+    decenas = residuo/10; 
+    unidades = residuo%10; //se queda con las unidades de las decenas
+    //las variables estan en todo el codigo entonces no necesito el return
+    centenas += 48;
+    decenas += 48;
+    unidades += 48;
+    return;
+} 
 /*==============================================================================
                          CONFIGURACION DEL PIC
  =============================================================================*/

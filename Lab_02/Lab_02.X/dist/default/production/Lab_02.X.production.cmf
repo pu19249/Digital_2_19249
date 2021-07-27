@@ -12,46 +12,34 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\Lab_02.X.production.o
-cinit CODE 0 F F 17 2
-text1 CODE 0 AE7 AE7 23 2
-text2 CODE 0 B0A B0A 25 2
-text3 CODE 0 AAE AAE 1C 2
-text4 CODE 0 E01 E01 65 2
-text5 CODE 0 F4B F4B B5 2
-text6 CODE 0 A94 A94 1A 2
-text7 CODE 0 58E 58E 169 2
-text8 CODE 0 A64 A64 9 2
-text9 CODE 0 B87 B87 3C 2
-text10 CODE 0 C09 C09 46 2
-text11 CODE 0 CF9 CF9 55 2
-text12 CODE 0 CA4 CA4 55 2
-text13 CODE 0 C4F C4F 55 2
-text14 CODE 0 DA6 DA6 5B 2
-text15 CODE 0 E66 E66 69 2
-text16 CODE 0 6F7 6F7 BC 2
-text17 CODE 0 ECF ECF 7C 2
-text18 CODE 0 2F 2F 361 2
-text19 CODE 0 B2F B2F 29 2
-text20 CODE 0 BC3 BC3 46 2
-text21 CODE 0 ACA ACA 1D 2
-text22 CODE 0 D4E D4E 58 2
-text23 CODE 0 7B3 7B3 47 2
-text24 CODE 0 A6D A6D D 2
-text25 CODE 0 A7A A7A 1A 2
-text26 CODE 0 7FA 7FA 6 2
-text27 CODE 0 B58 B58 2F 2
-maintext CODE 0 390 390 1FE 2
-cstackCOMMON COMMON 1 70 70 9 1
-cstackBANK0 BANK0 1 20 20 38 1
+cinit CODE 0 F F 11 2
+text1 CODE 0 4D1 4D1 25 2
+text2 CODE 0 532 532 1C 2
+text3 CODE 0 2C2 2C2 65 2
+text4 CODE 0 180 180 71 2
+text5 CODE 0 3DA 3DA 51 2
+text6 CODE 0 4F6 4F6 1F 2
+text7 CODE 0 575 575 A 2
+text8 CODE 0 25A 25A 68 2
+text9 CODE 0 327 327 5B 2
+text10 CODE 0 1F1 1F1 69 2
+text11 CODE 0 4A8 4A8 29 2
+text12 CODE 0 515 515 1D 2
+text13 CODE 0 382 382 58 2
+text14 CODE 0 42B 42B 4E 2
+text15 CODE 0 568 568 D 2
+text16 CODE 0 54E 54E 1A 2
+text17 CODE 0 57F 57F 6 2
+text18 CODE 0 479 479 2F 2
+maintext CODE 0 20 20 D5 2
+cstackCOMMON COMMON 1 70 70 8 1
+cstackBANK0 BANK0 1 20 20 B 1
 intentry CODE 0 4 4 8 2
-bssBANK0 BANK0 1 58 58 10 1
-bssBANK1 BANK1 1 A0 A0 28 1
-strings STRING 0 800 800 5B 2
-functab ENTRY 0 26 26 9 2
-clrtext CODE 0 A5C A5C 8 2
-bssCOMMON COMMON 1 79 79 2 1
+bssBANK0 BANK0 1 2B 2B 8 1
+strings STRING 0 100 100 80 2
+bssCOMMON COMMON 1 78 78 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jpu20\AppData\Local\Temp\s75k.o
+$C:\Users\jpu20\AppData\Local\Temp\skm8.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -61,25 +49,25 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 68-6F 1
-RAM C8-EF 1
+RAM 33-6F 1
+RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 68-6F 1
-BANK1 C8-EF 1
+BANK0 33-6F 1
+BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 85B-A5B 2
-CONST 1000-1FFF 2
+CONST F5-FF 2
+CONST 585-1FFF 2
 ENTRY 3-3 2
-ENTRY 85B-A5B 2
-ENTRY 1000-1FFF 2
+ENTRY F5-FF 2
+ENTRY 585-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 85B-A5B 2
-CODE 1000-1FFF 2
+CODE F5-FF 2
+CODE 585-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -87,11 +75,11 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 85B-A5B 2
-STRCODE 1000-1FFF 2
+STRCODE F5-FF 2
+STRCODE 585-1FFF 2
 STRING 3-3 2
-STRING 85B-A5B 2
-STRING 1000-1FFF 2
+STRING F5-FF 2
+STRING 585-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -106,524 +94,301 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab_02.X.production.o
-F cinit CODE >1143:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-F cinit CODE >1146:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-F cinit CODE >1217:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-10 cinit CODE >1218:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-11 cinit CODE >1221:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-12 cinit CODE >1222:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-13 cinit CODE >1223:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-14 cinit CODE >1224:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-15 cinit CODE >1225:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-1A cinit CODE >1228:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-1B cinit CODE >1229:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-1C cinit CODE >1230:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-1D cinit CODE >1231:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-22 cinit CODE >1237:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-22 cinit CODE >1239:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-23 cinit CODE >1240:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-26 functab ENTRY >8336:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-26 functab ENTRY >8338:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-26 functab ENTRY >8339:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-26 functab ENTRY >8340:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-27 functab ENTRY >8341:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-28 functab ENTRY >8342:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-29 functab ENTRY >8343:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-2A functab ENTRY >8344:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-2B functab ENTRY >8346:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-2B functab ENTRY >8347:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-2C functab ENTRY >8350:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-2C functab ENTRY >8351:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-4 intentry CODE >95:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B58 text27 CODE >95:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B58 text27 CODE >97:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B5E text27 CODE >98:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B67 text27 CODE >99:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B6B text27 CODE >100:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B6F text27 CODE >101:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B70 text27 CODE >102:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B79 text27 CODE >103:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B7B text27 CODE >104:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B7F text27 CODE >107:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B80 text27 CODE >108:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-7FA text26 CODE >12:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7FB text26 CODE >13:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7FF text26 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A7A text25 CODE >17:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A7B text25 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A7E text25 CODE >19:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A84 text25 CODE >20:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A87 text25 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A90 text25 CODE >22:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A93 text25 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A6D text24 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A6D text24 CODE >26:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A73 text24 CODE >27:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-A79 text24 CODE >28:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7B3 text23 CODE >61:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7B3 text23 CODE >62:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7B9 text23 CODE >63:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7C2 text23 CODE >64:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7C8 text23 CODE >65:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7D0 text23 CODE >66:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7D6 text23 CODE >67:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7DB text23 CODE >68:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7E1 text23 CODE >70:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7E7 text23 CODE >72:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7ED text23 CODE >74:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7F3 text23 CODE >76:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-7F9 text23 CODE >77:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D4E text22 CODE >43:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D51 text22 CODE >45:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D56 text22 CODE >46:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D5B text22 CODE >47:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D67 text22 CODE >48:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D6C text22 CODE >49:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D72 text22 CODE >51:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D7A text22 CODE >52:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D81 text22 CODE >53:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D86 text22 CODE >54:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D92 text22 CODE >55:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D97 text22 CODE >56:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-D9D text22 CODE >57:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-DA5 text22 CODE >59:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-ACA text21 CODE >79:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-ACB text21 CODE >81:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-ACF text21 CODE >82:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-AD3 text21 CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-AD6 text21 CODE >84:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-ADC text21 CODE >85:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-ADF text21 CODE >86:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-AE3 text21 CODE >87:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-AE6 text21 CODE >92:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-BC3 text20 CODE >94:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-BC3 text20 CODE >96:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-BC8 text20 CODE >97:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-C08 text20 CODE >98:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
-B2F text19 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B32 text19 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B34 text19 CODE >6:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B3B text19 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B3F text19 CODE >52:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B45 text19 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B45 text19 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B4C text19 CODE >55:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B4E text19 CODE >56:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B53 text19 CODE >59:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-B57 text19 CODE >60:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
-2F text18 CODE >8:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2F text18 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-36 text18 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-3C text18 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-40 text18 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-41 text18 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-46 text18 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-4B text18 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-53 text18 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-54 text18 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-55 text18 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-5D text18 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-62 text18 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-68 text18 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-6C text18 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-6D text18 CODE >45:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-72 text18 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-77 text18 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-7F text18 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-80 text18 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-81 text18 CODE >57:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-89 text18 CODE >65:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-93 text18 CODE >66:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-9C text18 CODE >119:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-AC text18 CODE >120:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-B9 text18 CODE >121:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-C6 text18 CODE >122:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-D6 text18 CODE >123:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-F2 text18 CODE >124:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-10E text18 CODE >125:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-11E text18 CODE >126:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-13A text18 CODE >127:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-156 text18 CODE >128:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-15F text18 CODE >129:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-16F text18 CODE >130:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-18C text18 CODE >131:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-19C text18 CODE >132:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1B9 text18 CODE >133:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1C2 text18 CODE >134:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1D2 text18 CODE >135:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1EF text18 CODE >136:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-1FF text18 CODE >137:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-21C text18 CODE >138:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-22C text18 CODE >139:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-249 text18 CODE >140:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-259 text18 CODE >141:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-27F text18 CODE >145:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2A7 text18 CODE >146:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2B0 text18 CODE >149:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2BD text18 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2BE text18 CODE >153:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2C7 text18 CODE >154:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2CB text18 CODE >155:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2CC text18 CODE >157:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2D5 text18 CODE >158:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2DB text18 CODE >152:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2DF text18 CODE >163:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2E0 text18 CODE >164:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2E4 text18 CODE >165:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2F8 text18 CODE >166:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2FA text18 CODE >167:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2FB text18 CODE >168:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-2FB text18 CODE >169:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-300 text18 CODE >174:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-305 text18 CODE >175:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-313 text18 CODE >176:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-317 text18 CODE >177:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-330 text18 CODE >178:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-336 text18 CODE >183:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-343 text18 CODE >184:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-34D text18 CODE >185:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-34E text18 CODE >187:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-35D text18 CODE >188:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-367 text18 CODE >190:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-368 text18 CODE >191:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-369 text18 CODE >194:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-36F text18 CODE >195:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-377 text18 CODE >196:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-37B text18 CODE >197:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-37C text18 CODE >199:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-383 text18 CODE >200:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-383 text18 CODE >201:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-387 text18 CODE >203:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-38F text18 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
-ECF text17 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-ECF text17 CODE >47:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-EDC text17 CODE >48:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-EE5 text17 CODE >49:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-EFA text17 CODE >50:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-EFB text17 CODE >51:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F03 text17 CODE >52:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F05 text17 CODE >53:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F09 text17 CODE >54:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F11 text17 CODE >57:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F1A text17 CODE >58:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F23 text17 CODE >60:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F2A text17 CODE >63:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F33 text17 CODE >64:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F35 text17 CODE >62:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F35 text17 CODE >65:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F3A text17 CODE >67:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F3F text17 CODE >68:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-F4A text17 CODE >70:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
-6F7 text16 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-6FA text16 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-703 text16 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-712 text16 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-713 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-71B text16 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-71B text16 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-723 text16 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-72C text16 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-730 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-731 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-735 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-73E text16 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-745 text16 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-749 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-757 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-760 text16 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-760 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-767 text16 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-769 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-772 text16 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-77C text16 CODE >37:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-780 text16 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-788 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-78A text16 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-7A0 text16 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-7A9 text16 CODE >42:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-7AA text16 CODE >43:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-7B2 text16 CODE >44:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
-E66 text15 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E66 text15 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E69 text15 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E6D text15 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E72 text15 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E74 text15 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E78 text15 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E7D text15 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E81 text15 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E83 text15 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E89 text15 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E8B text15 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E8C text15 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E93 text15 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E97 text15 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-E9B text15 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EA2 text15 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EAC text15 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EB2 text15 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EB3 text15 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EBA text15 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EC0 text15 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-EC5 text15 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-ECA text15 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-ECE text15 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-DA6 text14 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DA6 text14 CODE >12:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DA9 text14 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DAD text14 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DB2 text14 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DB4 text14 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DB8 text14 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DBD text14 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DC3 text14 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DC5 text14 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DC6 text14 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DCD text14 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DD1 text14 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DD5 text14 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DDF text14 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DE5 text14 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DEC text14 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DF2 text14 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DF7 text14 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-DFC text14 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-E00 text14 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
-C4F text13 CODE >178:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-C52 text13 CODE >179:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-C68 text13 CODE >180:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-C7E text13 CODE >181:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-C8E text13 CODE >182:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CA0 text13 CODE >184:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CA3 text13 CODE >185:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CA4 text12 CODE >187:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CA7 text12 CODE >188:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CB7 text12 CODE >189:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CCF text12 CODE >190:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CE5 text12 CODE >191:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CF5 text12 CODE >193:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CF8 text12 CODE >194:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CF9 text11 CODE >196:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-CFC text11 CODE >197:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D0C text11 CODE >198:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D24 text11 CODE >199:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D34 text11 CODE >200:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D4C text11 CODE >202:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D4D text11 CODE >203:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-C09 text10 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C09 text10 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C0D text10 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C13 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C15 text10 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C16 text10 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C1D text10 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C21 text10 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C25 text10 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C2C text10 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C36 text10 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C3C text10 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C3D text10 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C44 text10 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C4A text10 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-C4E text10 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
-B87 text9 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B87 text9 CODE >12:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B8F text9 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B91 text9 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B92 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B99 text9 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-B9D text9 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BA1 text9 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BAB text9 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BB1 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BB8 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BBE text9 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-BC2 text9 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
-A64 text8 CODE >231:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-A64 text8 CODE >232:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-A6A text8 CODE >233:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-A6C text8 CODE >235:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-58E text7 CODE >471:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-591 text7 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-592 text7 CODE >555:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-598 text7 CODE >558:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-5BE text7 CODE >565:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-5BF text7 CODE >661:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-5C0 text7 CODE >835:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-5E6 text7 CODE >848:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-609 text7 CODE >1285:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-617 text7 CODE >1287:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-61B text7 CODE >1288:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-61F text7 CODE >1289:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-624 text7 CODE >1331:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-626 text7 CODE >1332:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-642 text7 CODE >1333:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-64C text7 CODE >1464:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-652 text7 CODE >1465:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-675 text7 CODE >1498:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-67B text7 CODE >1500:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-67C text7 CODE >1515:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-6AC text7 CODE >1550:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-6CF text7 CODE >1500:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-6DA text7 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-6F4 text7 CODE >1566:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-6F6 text7 CODE >1567:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-A94 text6 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-A94 text6 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-A97 text6 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-A9B text6 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-A9F text6 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-AAD text6 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\printf.c
-F4B text5 CODE >211:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F4B text5 CODE >212:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F59 text5 CODE >213:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F64 text5 CODE >214:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F6F text5 CODE >215:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F7A text5 CODE >216:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F85 text5 CODE >217:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F90 text5 CODE >218:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-F9B text5 CODE >219:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FA9 text5 CODE >220:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FB4 text5 CODE >221:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FBF text5 CODE >222:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FCA text5 CODE >223:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FD5 text5 CODE >224:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FE0 text5 CODE >225:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FEB text5 CODE >226:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FF9 text5 CODE >227:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-FFF text5 CODE >230:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-E01 text4 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E02 text4 CODE >16:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E03 text4 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E07 text4 CODE >19:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E0B text4 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E0E text4 CODE >22:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E0F text4 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E10 text4 CODE >24:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E13 text4 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E14 text4 CODE >26:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E15 text4 CODE >27:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E16 text4 CODE >29:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E1A text4 CODE >30:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E1E text4 CODE >32:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E21 text4 CODE >33:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E22 text4 CODE >34:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E23 text4 CODE >35:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E26 text4 CODE >36:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E27 text4 CODE >37:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E28 text4 CODE >38:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E29 text4 CODE >40:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E2D text4 CODE >41:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E31 text4 CODE >43:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E34 text4 CODE >44:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E35 text4 CODE >45:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E36 text4 CODE >46:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E39 text4 CODE >47:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E3A text4 CODE >48:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E3B text4 CODE >49:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E3C text4 CODE >51:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E40 text4 CODE >52:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E44 text4 CODE >54:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E47 text4 CODE >55:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E48 text4 CODE >56:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E49 text4 CODE >57:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E4C text4 CODE >58:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E4D text4 CODE >59:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E4E text4 CODE >60:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E4F text4 CODE >61:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-E65 text4 CODE >63:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
-AAE text3 CODE >11:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AAE text3 CODE >13:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AB2 text3 CODE >14:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AB3 text3 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AB6 text3 CODE >16:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AB9 text3 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-ABA text3 CODE >20:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-ABD text3 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-ABE text3 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC1 text3 CODE >24:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC2 text3 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC5 text3 CODE >28:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC6 text3 CODE >29:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC7 text3 CODE >31:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC8 text3 CODE >32:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-AC9 text3 CODE >35:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
-B0A text2 CODE >239:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B0A text2 CODE >241:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B0E text2 CODE >242:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B11 text2 CODE >243:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B12 text2 CODE >246:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B13 text2 CODE >247:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B14 text2 CODE >251:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B15 text2 CODE >252:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B16 text2 CODE >253:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B17 text2 CODE >254:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B18 text2 CODE >257:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B19 text2 CODE >258:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B1C text2 CODE >259:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B1D text2 CODE >260:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B1E text2 CODE >263:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B1F text2 CODE >264:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B20 text2 CODE >265:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B21 text2 CODE >266:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B22 text2 CODE >267:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B23 text2 CODE >270:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B28 text2 CODE >272:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-B2E text2 CODE >274:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-AE7 text1 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-AEA text1 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-AEE text1 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-AEF text1 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-AF3 text1 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-B03 text1 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-B09 text1 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprintf.c
-390 maintext CODE >118:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-390 maintext CODE >119:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-395 maintext CODE >121:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-39A maintext CODE >122:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-39F maintext CODE >127:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-3A7 maintext CODE >128:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-3B2 maintext CODE >130:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-3B2 maintext CODE >131:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-3F3 maintext CODE >132:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-432 maintext CODE >133:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-443 maintext CODE >134:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-456 maintext CODE >138:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-463 maintext CODE >139:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-46E maintext CODE >140:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-479 maintext CODE >142:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-484 maintext CODE >143:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-48F maintext CODE >144:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-49A maintext CODE >145:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-4AB maintext CODE >146:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-4BE maintext CODE >147:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-4D1 maintext CODE >148:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-4E4 maintext CODE >149:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-4F7 maintext CODE >150:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-50A maintext CODE >153:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-512 maintext CODE >154:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-51D maintext CODE >155:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-528 maintext CODE >156:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-533 maintext CODE >157:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-53E maintext CODE >158:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-549 maintext CODE >159:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-554 maintext CODE >160:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-55F maintext CODE >161:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-56A maintext CODE >162:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-575 maintext CODE >168:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-57B maintext CODE >169:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-582 maintext CODE >170:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-585 maintext CODE >172:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-A5C clrtext CODE >1204:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A5C clrtext CODE >1205:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A5D clrtext CODE >1206:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A5D clrtext CODE >1207:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A5E clrtext CODE >1208:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A5F clrtext CODE >1209:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A60 clrtext CODE >1210:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A61 clrtext CODE >1211:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A62 clrtext CODE >1212:C:\Users\jpu20\AppData\Local\Temp\s75k.s
-A63 clrtext CODE >1213:C:\Users\jpu20\AppData\Local\Temp\s75k.s
+F cinit CODE >1148:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+F cinit CODE >1151:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+F cinit CODE >1195:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+10 cinit CODE >1196:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+11 cinit CODE >1197:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+12 cinit CODE >1200:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+13 cinit CODE >1201:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+14 cinit CODE >1202:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+15 cinit CODE >1203:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+16 cinit CODE >1204:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+17 cinit CODE >1205:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+18 cinit CODE >1206:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+19 cinit CODE >1207:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+1A cinit CODE >1208:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+1B cinit CODE >1209:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+1C cinit CODE >1215:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+1C cinit CODE >1217:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+1D cinit CODE >1218:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+4 intentry CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+479 text18 CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+479 text18 CODE >85:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+47F text18 CODE >86:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+488 text18 CODE >87:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+48C text18 CODE >88:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+490 text18 CODE >89:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+491 text18 CODE >90:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+49A text18 CODE >91:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+49C text18 CODE >92:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4A0 text18 CODE >95:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4A1 text18 CODE >96:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+57F text17 CODE >12:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+580 text17 CODE >13:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+584 text17 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+54E text16 CODE >17:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+54F text16 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+552 text16 CODE >19:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+558 text16 CODE >20:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+55B text16 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+564 text16 CODE >22:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+567 text16 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+568 text15 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+568 text15 CODE >26:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+56E text15 CODE >27:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+574 text15 CODE >28:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+42B text14 CODE >61:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+42B text14 CODE >62:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+431 text14 CODE >63:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+43C text14 CODE >64:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+442 text14 CODE >65:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+44D text14 CODE >66:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+453 text14 CODE >67:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+45A text14 CODE >68:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+460 text14 CODE >70:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+466 text14 CODE >72:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+46C text14 CODE >74:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+472 text14 CODE >76:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+478 text14 CODE >77:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+382 text13 CODE >43:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+385 text13 CODE >45:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+38A text13 CODE >46:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+38F text13 CODE >47:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+39B text13 CODE >48:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3A0 text13 CODE >49:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3A6 text13 CODE >51:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3AE text13 CODE >52:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3B5 text13 CODE >53:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3BA text13 CODE >54:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3C6 text13 CODE >55:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3CB text13 CODE >56:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3D1 text13 CODE >57:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+3D9 text13 CODE >59:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+515 text12 CODE >79:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+516 text12 CODE >81:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+51A text12 CODE >82:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+51E text12 CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+521 text12 CODE >84:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+527 text12 CODE >85:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+52A text12 CODE >86:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+52E text12 CODE >87:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+531 text12 CODE >92:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+4A8 text11 CODE >94:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+4AB text11 CODE >96:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+4AE text11 CODE >97:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+4D0 text11 CODE >98:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\LCD_8b.c
+1F1 text10 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1F1 text10 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1F4 text10 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1F8 text10 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1FD text10 CODE >16:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+1FF text10 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+203 text10 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+208 text10 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+20C text10 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+20E text10 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+214 text10 CODE >24:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+216 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+217 text10 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+21E text10 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+222 text10 CODE >25:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+226 text10 CODE >30:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+22D text10 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+237 text10 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+23D text10 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+23E text10 CODE >35:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+245 text10 CODE >36:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+24B text10 CODE >38:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+250 text10 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+255 text10 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+259 text10 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
+327 text9 CODE >5:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+327 text9 CODE >12:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+32A text9 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+32E text9 CODE >14:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+333 text9 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+335 text9 CODE >17:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+339 text9 CODE >18:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+33E text9 CODE >19:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+344 text9 CODE >20:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+346 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+347 text9 CODE >22:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+34E text9 CODE >23:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+352 text9 CODE >21:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+356 text9 CODE >26:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+360 text9 CODE >27:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+366 text9 CODE >28:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+36D text9 CODE >29:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+373 text9 CODE >31:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+378 text9 CODE >32:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+37D text9 CODE >33:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+381 text9 CODE >34:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awmod.c
+25A text8 CODE >207:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+25D text8 CODE >209:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+273 text8 CODE >210:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+289 text8 CODE >211:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+29F text8 CODE >212:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2B5 text8 CODE >214:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2B9 text8 CODE >215:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2BD text8 CODE >216:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2C1 text8 CODE >218:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+575 text7 CODE >201:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+576 text7 CODE >202:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+57C text7 CODE >203:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+57E text7 CODE >205:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4F6 text6 CODE >477:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+4F7 text6 CODE >550:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+4FB text6 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+4FC text6 CODE >558:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+502 text6 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+514 text6 CODE >1567:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+3DA text5 CODE >165:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3DA text5 CODE >166:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3E0 text5 CODE >167:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3EA text5 CODE >168:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3EE text5 CODE >169:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3F8 text5 CODE >170:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3FE text5 CODE >171:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+408 text5 CODE >172:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+40C text5 CODE >173:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+416 text5 CODE >174:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+41A text5 CODE >175:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+424 text5 CODE >176:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+42A text5 CODE >179:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+180 text4 CODE >181:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+180 text4 CODE >182:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+186 text4 CODE >183:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+190 text4 CODE >184:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+194 text4 CODE >185:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+19E text4 CODE >186:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1A4 text4 CODE >187:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1AE text4 CODE >188:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1B2 text4 CODE >189:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1BC text4 CODE >190:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1C0 text4 CODE >191:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1CA text4 CODE >192:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1D0 text4 CODE >193:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1DA text4 CODE >194:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1E0 text4 CODE >195:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1EA text4 CODE >196:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+1F0 text4 CODE >199:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2C2 text3 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2C3 text3 CODE >16:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2C4 text3 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2C8 text3 CODE >19:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2CC text3 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2CF text3 CODE >22:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D0 text3 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D1 text3 CODE >24:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D4 text3 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D5 text3 CODE >26:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D6 text3 CODE >27:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2D7 text3 CODE >29:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2DB text3 CODE >30:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2DF text3 CODE >32:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E2 text3 CODE >33:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E3 text3 CODE >34:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E4 text3 CODE >35:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E7 text3 CODE >36:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E8 text3 CODE >37:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2E9 text3 CODE >38:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2EA text3 CODE >40:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2EE text3 CODE >41:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2F2 text3 CODE >43:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2F5 text3 CODE >44:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2F6 text3 CODE >45:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2F7 text3 CODE >46:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2FA text3 CODE >47:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2FB text3 CODE >48:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2FC text3 CODE >49:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+2FD text3 CODE >51:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+301 text3 CODE >52:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+305 text3 CODE >54:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+308 text3 CODE >55:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+309 text3 CODE >56:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+30A text3 CODE >57:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+30D text3 CODE >58:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+30E text3 CODE >59:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+30F text3 CODE >60:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+310 text3 CODE >61:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+326 text3 CODE >63:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_ADC.c
+532 text2 CODE >11:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+532 text2 CODE >13:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+536 text2 CODE >14:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+537 text2 CODE >15:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+53A text2 CODE >16:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+53D text2 CODE >18:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+53E text2 CODE >20:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+541 text2 CODE >21:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+542 text2 CODE >23:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+545 text2 CODE >24:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+546 text2 CODE >25:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+549 text2 CODE >28:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+54A text2 CODE >29:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+54B text2 CODE >31:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+54C text2 CODE >32:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+54D text2 CODE >35:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\config_USART.c
+4D1 text1 CODE >222:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4D1 text1 CODE >224:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4D5 text1 CODE >225:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4D8 text1 CODE >226:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4D9 text1 CODE >229:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DA text1 CODE >230:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DB text1 CODE >234:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DC text1 CODE >235:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DD text1 CODE >236:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DE text1 CODE >237:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4DF text1 CODE >240:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E0 text1 CODE >241:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E3 text1 CODE >242:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E4 text1 CODE >243:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E5 text1 CODE >246:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E6 text1 CODE >247:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E7 text1 CODE >248:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E8 text1 CODE >249:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4E9 text1 CODE >250:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4EA text1 CODE >253:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4EF text1 CODE >255:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4F5 text1 CODE >257:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+20 maintext CODE >101:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+20 maintext CODE >102:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+25 maintext CODE >104:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2A maintext CODE >105:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+2F maintext CODE >107:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+37 maintext CODE >108:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3D maintext CODE >110:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+3D maintext CODE >112:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+45 maintext CODE >113:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+4D maintext CODE >114:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+53 maintext CODE >115:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+59 maintext CODE >116:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+5F maintext CODE >117:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+65 maintext CODE >118:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+6B maintext CODE >119:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+70 maintext CODE >121:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+78 maintext CODE >122:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+7E maintext CODE >123:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+84 maintext CODE >124:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+8A maintext CODE >125:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+90 maintext CODE >126:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+96 maintext CODE >127:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+9B maintext CODE >129:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+A1 maintext CODE >130:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+A7 maintext CODE >131:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+AB maintext CODE >133:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+AC maintext CODE >135:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+B2 maintext CODE >136:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+B4 maintext CODE >137:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+BA maintext CODE >138:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+BB maintext CODE >143:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+C1 maintext CODE >144:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+C7 maintext CODE >145:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+CD maintext CODE >146:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+D3 maintext CODE >150:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+E1 maintext CODE >152:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+E7 maintext CODE >153:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+EE maintext CODE >154:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -639,359 +404,247 @@ A63 clrtext CODE >1213:C:\Users\jpu20\AppData\Local\Temp\s75k.s
 ___latbits 2 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 ___awdiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 putch@dato 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-___lwmod@counter 27 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-main@unidades1 54 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-main@unidades2 57 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Hspace_0 1000 0 ABS 0 - -
-__Hspace_1 C8 0 ABS 0 - -
+__Hspace_0 585 0 ABS 0 - -
+__Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
-_Lcd_Init F66 0 CODE 0 text23 dist/default/production\Lab_02.X.production.o
-_Lcd_Port FF4 0 CODE 0 text26 dist/default/production\Lab_02.X.production.o
+__size_of_division 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
+_Lcd_Init 856 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
+_Lcd_Port AFE 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_Lcd_Init FF4 0 CODE 0 text23 dist/default/production\Lab_02.X.production.o
-__end_of_Lcd_Port 1000 0 CODE 0 text26 dist/default/production\Lab_02.X.production.o
-__Hstrings 5E 0 ABS 0 strings -
+__end_of_Lcd_Init 8F2 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Port B0A 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
+__size_of_mensaje1 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
+__Hstrings 0 0 ABS 0 strings -
 _ADIF 66 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _RCIF 65 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\s75k.o
-_dato 58 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_main 720 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\skm8.o
+_main 40 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-_Lcd_Write_Char 1594 0 CODE 0 text21 dist/default/production\Lab_02.X.production.o
-start 18 0 CODE 0 init C:\Users\jpu20\AppData\Local\Temp\s75k.o
-___flmul@aexp 3C 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@bexp 3D 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@prod 3E 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@sign 37 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@temp 42 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+_Lcd_Write_Char A2A 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
+start 18 0 CODE 0 init C:\Users\jpu20\AppData\Local\Temp\skm8.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__pfunctab 4C 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
-__size_of___flmul 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__size_of___fltol 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__size_of___lwdiv 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__size_of___lwmod 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 Lcd_Port@a 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__HbssCOMMON 5E 0 ABS 0 bssCOMMON -
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
 Lcd_Write_Char@temp 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 __size_of_config_ADC 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-printf@f 35 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+printf@c 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
+printf@f 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 ___awmod@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__size_of__doprnt 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-intlevel0 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-intlevel1 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-intlevel2 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-intlevel3 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-intlevel4 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-intlevel5 4C 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s75k.o
-__LbssCOMMON 5E 0 ABS 0 bssCOMMON -
-division1@dividendo 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+_division 4B4 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__Hfunctab 5E 0 ENTRY 0 functab -
-main@centenas1 52 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-main@centenas2 55 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+__end_of_division 584 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Set_Cursor 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 ___awdiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Hclrtext 5E 0 ABS 0 clrtext -
-__end_of_Lcd_Write_Char 15CE 0 CODE 0 text21 dist/default/production\Lab_02.X.production.o
-division3@dividendo 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext -
+_mensaje1 300 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
+_decenas 79 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Write_Char A64 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
 _ADRESH 1E 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of__Umul8_16 16B0 0 CODE 0 text19 dist/default/production\Lab_02.X.production.o
 ___awdiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__size_of__Umul8_16 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__doprnt@flag 2F 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__doprnt@prec 30 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Lmaintext 5E 0 ABS 0 maintext -
-__size_of_sprintf 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-?_printf 35 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__end_of_mensaje1 3E2 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
+_unidades 78 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
+__Lmaintext 0 0 ABS 0 maintext -
+?_printf 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-___lwmod@divisor 23 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of___awdiv 1D9E 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
-__end_of___awmod 1C02 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
-__Umul8_16 165E 0 CODE 0 text19 dist/default/production\Lab_02.X.production.o
-__end_of___flmul 720 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
-__end_of___fltol 1E96 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
-__end_of___lwdiv 189E 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
-__end_of___lwmod 1786 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
-__Umul8_16@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\s75k.o
-___stacklo 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\s75k.o
-_dpowers 1020 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
+__end_of___awdiv 4B4 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
+__end_of___awmod 704 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\skm8.o
+___stacklo 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\skm8.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___lwdiv@quotient 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 __size_of_putch 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___flmul@a 2E 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@b 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of__doprnt DEE 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
 Lcd_Set_Cursor@temp 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___lwmod@dividend 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_mensaje 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-_Lcd_Write_String 1786 0 CODE 0 text20 dist/default/production\Lab_02.X.production.o
-clear_ram0 14B8 0 CODE 0 clrtext dist/default/production\Lab_02.X.production.o
+_Lcd_Write_String 950 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of_printf 155C 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
+__end_of_printf A2A 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
+_residuo 2E 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Cmd 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\s75k.o
-division2@decenas2 29 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Hbank0 5E 0 ABS 0 bank0 -
-__Hbank1 5E 0 ABS 0 bank1 -
-__Hbank2 5E 0 ABS 0 bank2 -
-__Hbank3 5E 0 ABS 0 bank3 -
-__Hcinit 4C 0 CODE 0 cinit -
+___int_sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\skm8.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 40 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 101E 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
-___lwdiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__size_of___xxtofl 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__Hmaintext 5E 0 ABS 0 maintext -
-___xxtofl@arg 26 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___xxtofl@exp 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___xxtofl@val 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__end_of_sprintf 1614 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
-__Hcommon 5E 0 ABS 0 common -
+__stringbase 20A 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
-__Lbank0 5E 0 ABS 0 bank0 -
-__Lbank1 5E 0 ABS 0 bank1 -
-__Lbank2 5E 0 ABS 0 bank2 -
-__Lbank3 5E 0 ABS 0 bank3 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
 __Lcinit 1E 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
-__size_of__fptable 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-division1@residuo1 2B 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___flmul@grs 38 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 _PORTEbits 9 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-_voltaje1 5B 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_voltaje2 5A 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-__Habs1 5E 0 ABS 0 abs1 -
-__Hcode 5E 0 ABS 0 code -
+_voltaje1 32 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+_voltaje2 31 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
 __Hinit 18 0 CODE 0 init -
-__Hsfr0 5E 0 ABS 0 sfr0 -
-__Hsfr1 5E 0 ABS 0 sfr1 -
-__Hsfr2 5E 0 ABS 0 sfr2 -
-__Hsfr3 5E 0 ABS 0 sfr3 -
-__Htext 5E 0 ABS 0 text -
-division2@residuo2 2B 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Labs1 5E 0 ABS 0 abs1 -
-__Lcode 5E 0 ABS 0 code -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
 __Linit 18 0 CODE 0 init -
-__Lsfr0 5E 0 ABS 0 sfr0 -
-__Lsfr1 5E 0 ABS 0 sfr1 -
-__Lsfr2 5E 0 ABS 0 sfr2 -
-__Lsfr3 5E 0 ABS 0 sfr3 -
-__Ltext 5E 0 ABS 0 text -
-__LcstackBANK0 5E 0 ABS 0 cstackBANK0 -
-__HcstackCOMMON 5E 0 ABS 0 cstackCOMMON -
-division3@residuo3 2B 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__S0 1000 0 ABS 0 - -
-__S1 C8 0 ABS 0 - -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__S0 585 0 ABS 0 - -
+__S1 7B 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_isr 16B0 0 CODE 0 text27 dist/default/production\Lab_02.X.production.o
-_buffer B4 0 BANK1 1 bssBANK1 dist/default/production\Lab_02.X.production.o
+_isr 8F2 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of_mensaje 2000 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
-__end_of_division1 1948 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
-__end_of_division2 19F2 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
-__end_of_division3 1A9C 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
-__end_of_Lcd_Write_String 1812 0 CODE 0 text20 dist/default/production\Lab_02.X.production.o
-__size_of_division1 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__size_of_division2 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__size_of_division3 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___xxtofl DEE 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
-__end_of_isr 170E 0 CODE 0 text27 dist/default/production\Lab_02.X.production.o
-_config_USART 155C 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
-__end_of_Lcd_Clear 14F4 0 CODE 0 text24 dist/default/production\Lab_02.X.production.o
+__end_of_mensaje 856 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Write_String 9A2 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
+__end_of_isr 950 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
+_config_USART A64 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Clear AEA 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __size_of_Lcd_Write_String 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__stringtab 1000 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
-Lcd_Write_String@a 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-Lcd_Write_String@i 25 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jpu20\AppData\Local\Temp\s75k.o
+__stringtab 200 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
+Lcd_Write_String@a 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+Lcd_Write_String@i 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jpu20\AppData\Local\Temp\skm8.o
 __size_of_Lcd_Clear 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of___xxtofl F66 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
-__fptable 4C 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
-division3@unidades3 29 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of_Lcd_Cmd 1528 0 CODE 0 text25 dist/default/production\Lab_02.X.production.o
-__LbssBANK0 5E 0 ABS 0 bssBANK0 -
-__LbssBANK1 5E 0 ABS 0 bssBANK1 -
-_division1 189E 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
-_division2 1948 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
-_division3 19F2 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Cmd AD0 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awmod@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__doprnt@ap 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__doprnt@pb 34 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of__fptable 5E 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
-__ptext10 1812 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
-__ptext11 19F2 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
-__ptext12 1948 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
-__ptext13 189E 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
-__ptext14 1B4C 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
-__ptext15 1CCC 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
-__ptext16 DEE 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
-__ptext17 1D9E 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
-__ptext18 5E 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
-__ptext19 165E 0 CODE 0 text19 dist/default/production\Lab_02.X.production.o
-__ptext20 1786 0 CODE 0 text20 dist/default/production\Lab_02.X.production.o
-__ptext21 1594 0 CODE 0 text21 dist/default/production\Lab_02.X.production.o
-__ptext22 1A9C 0 CODE 0 text22 dist/default/production\Lab_02.X.production.o
-__ptext23 F66 0 CODE 0 text23 dist/default/production\Lab_02.X.production.o
-__ptext24 14DA 0 CODE 0 text24 dist/default/production\Lab_02.X.production.o
-__ptext25 14F4 0 CODE 0 text25 dist/default/production\Lab_02.X.production.o
-__ptext26 FF4 0 CODE 0 text26 dist/default/production\Lab_02.X.production.o
-__ptext27 16B0 0 CODE 0 text27 dist/default/production\Lab_02.X.production.o
-_Lcd_Clear 14DA 0 CODE 0 text24 dist/default/production\Lab_02.X.production.o
+__ptext10 3E2 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
+__ptext11 950 0 CODE 0 text11 dist/default/production\Lab_02.X.production.o
+__ptext12 A2A 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
+__ptext13 704 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
+__ptext14 856 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
+__ptext15 AD0 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
+__ptext16 A9C 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
+__ptext17 AFE 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
+__ptext18 8F2 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
+_Lcd_Clear AD0 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Write_Char 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___awdiv 1CCC 0 CODE 0 text15 dist/default/production\Lab_02.X.production.o
-___awmod 1B4C 0 CODE 0 text14 dist/default/production\Lab_02.X.production.o
-_Lcd_Set_Cursor 1A9C 0 CODE 0 text22 dist/default/production\Lab_02.X.production.o
-___flmul 5E 0 CODE 0 text18 dist/default/production\Lab_02.X.production.o
-___fltol 1D9E 0 CODE 0 text17 dist/default/production\Lab_02.X.production.o
-___lwdiv 1812 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
-___lwmod 170E 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
-__pmaintext 720 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
-__Umul8_16@multiplier 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Lcommon 5E 0 ABS 0 common -
+___awdiv 3E2 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
+___awmod 64E 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
+_Lcd_Set_Cursor 704 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
+__pmaintext 40 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
+__Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-_printf 1528 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
+_printf 9EC 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
 __size_of_config_USART 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-_config_ADC 1C02 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
-__doprnt@c 33 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__doprnt@f 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+_config_ADC 584 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
 config_ADC@frec 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-___lwdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-division2@dividendo 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__doprnt B1C 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
-division1@centenas1 29 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 _ADCON0bits 1F 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _ADCON1bits 9F 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of__stringtab 1020 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
+__end_of__stringtab 20C 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 79 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
-__end_of_config_USART 1594 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
-__HcstackBANK0 5E 0 ABS 0 cstackBANK0 -
-__Umul8_16@product 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
+__end_of_config_USART A9C 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits C 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
-_buffer1 A0 0 BANK1 1 bssBANK1 dist/default/production\Lab_02.X.production.o
-_buffer2 66 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_buffer3 64 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_buffer4 62 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_buffer5 60 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_buffer6 5E 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_buffer7 5C 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-__LcstackCOMMON 5E 0 ABS 0 cstackCOMMON -
-___fltol@exp1 78 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-printf@ap 38 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-printf@pb 39 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-end_of_initialization 44 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
-__end_of_Lcd_Set_Cursor 1B4C 0 CODE 0 text22 dist/default/production\Lab_02.X.production.o
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+printf@ap 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
+end_of_initialization 38 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
+__end_of_Lcd_Set_Cursor 7B4 0 CODE 0 text13 dist/default/production\Lab_02.X.production.o
 __Hintentry 18 0 CODE 0 intentry -
 Lcd_Set_Cursor@a 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 Lcd_Set_Cursor@b 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 Lcd_Set_Cursor@y 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 Lcd_Set_Cursor@z 23 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 __size_of_printf 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-fptable 4C 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
-fptotal 2 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__Lstrings 5E 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
 ___awdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 ?___awdiv 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 ?___awmod 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-___lwdiv@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-?___flmul 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-?___fltol 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-?___lwdiv 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-?___lwmod 23 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 __Hreset_vec 6 0 CODE 0 reset_vec -
-__HbssBANK0 5E 0 ABS 0 bssBANK0 -
-__HbssBANK1 5E 0 ABS 0 bssBANK1 -
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awmod@dividend 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__doprnt@val 31 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__ptext1 15CE 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
-__ptext2 1614 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
-__ptext3 155C 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
-__ptext4 1C02 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
-__ptext5 1E96 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
-__ptext6 1528 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
-__ptext7 B1C 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
-__ptext8 14C8 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
-__ptext9 170E 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
-?__Umul8_16 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__end_of_config_ADC 1CCC 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
-_sprintf 15CE 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
-?__doprnt 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__ptext1 9A2 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
+__ptext2 A64 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
+__ptext3 584 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
+__ptext4 300 0 CODE 0 text4 dist/default/production\Lab_02.X.production.o
+__ptext5 7B4 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
+__ptext6 9EC 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
+__ptext7 AEA 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
+__ptext8 4B4 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
+__ptext9 64E 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
+division@dividendo 27 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__end_of_config_ADC 64E 0 CODE 0 text3 dist/default/production\Lab_02.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
-?___xxtofl 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-sprintf@ap 39 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-sprintf@pb 3B 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-sprintf@wh 3A 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__Umul8_16@word_mpld 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-___fltol@sign1 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___fltol@f1 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of__initialization 44 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
+__end_of__initialization 38 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
 ___awmod@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__Lfunctab 4C 0 ENTRY 0 functab -
+__Lfunctab 0 0 ENTRY 0 functab -
 Lcd_Cmd@a 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-__Lclrtext 5E 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-_mensaje 1E96 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
+_mensaje 7B4 0 CODE 0 text5 dist/default/production\Lab_02.X.production.o
 _TXSTAbits 98 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Init 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Port 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-sprintf@f 35 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__end_of_main B1C 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
-main@decenas1 53 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-main@decenas2 56 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
+__end_of_main 1EA 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of_dpowers 1034 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
-?_sprintf 35 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTE 9 0 ABS 0 - dist/default/production\Lab_02.X.production.o
+_RCREG 1A 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _SPBRG 99 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _TRISE 89 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _TXREG 19 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-__end_of_putch 14DA 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
-__end_of_setup 165E 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
-__Hram 5E 0 ABS 0 ram -
-__Lram 5E 0 ABS 0 ram -
+__end_of_putch AFE 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
+__end_of_setup 9EC 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Lab_02.X.production.o
-_dato1 59 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_putch 14C8 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
-_setup 1614 0 CODE 0 text2 dist/default/production\Lab_02.X.production.o
+_putch AEA 0 CODE 0 text7 dist/default/production\Lab_02.X.production.o
+_setup 9A2 0 CODE 0 text1 dist/default/production\Lab_02.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\Lab_02.X.production.o
-_Lcd_Cmd 14F4 0 CODE 0 text25 dist/default/production\Lab_02.X.production.o
+_Lcd_Cmd A9C 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
+_centenas 7A 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
+_contador 2D 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
-___xxtofl@sign 24 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-__pbssBANK0 58 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\Lab_02.X.production.o
-__pstrings 1000 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
+__pbssBANK0 2B 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+__pstrings 200 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
 Lcd_Write_Char@a 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 Lcd_Write_Char@y 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
-fpbase 56 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1017,37 +670,12 @@ fpbase 56 0 ENTRY 0 functab dist/default/production\Lab_02.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 AE7 15CE 23 2
-text2 0 B0A 1614 25 2
-text3 0 AAE 155C 1C 2
-text4 0 E01 1C02 65 2
-text5 0 F4B 1E96 B5 2
-text6 0 A94 1528 1A 2
-text8 0 A64 14C8 9 2
-text9 0 B87 170E 3C 2
-text10 0 C09 1812 46 2
-text11 0 CF9 19F2 55 2
-text12 0 CA4 1948 55 2
-text13 0 C4F 189E 55 2
-text14 0 DA6 1B4C 5B 2
-text15 0 E66 1CCC 69 2
-text17 0 ECF 1D9E 7C 2
-text18 0 2F 5E 7D1 2
-text19 0 B2F 165E 29 2
-text20 0 BC3 1786 46 2
-text21 0 ACA 1594 1D 2
-text22 0 D4E 1A9C 58 2
-text24 0 A6D 14DA D 2
-text25 0 A7A 14F4 1A 2
-text27 0 B58 16B0 2F 2
+text4 0 180 300 405 2
 cstackCOMMON 1 70 70 B 1
-cstackBANK0 1 20 20 48 1
-intentry 0 4 8 22 2
+cstackBANK0 1 20 20 13 1
+intentry 0 4 8 F1 2
 reset_vec 0 0 0 3 2
-bssBANK1 1 A0 A0 28 1
-strings 0 800 1000 5B 2
-functab 0 26 4C 9 2
-clrtext 0 A5C 14B8 8 2
+strings 0 100 200 80 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
