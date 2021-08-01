@@ -2924,9 +2924,9 @@ char spiRead();
 uint8_t voltaje_a, voltaje_b;
 uint8_t centenas, decenas, unidades, residuo;
 uint8_t c1, d1, u1;
-char s1[20];
-char s2[20];
-char s3[20];
+char s1[10];
+char s2[10];
+char s3[10];
 
 
 
@@ -2937,8 +2937,9 @@ void mensaje1(void);
 void mensaje2(void);
 void putch(char dato);
 void division(char dividendo);
-
-
+void defensa(void);
+void defensa1(void);
+void defensa2(void);
 
 
 
@@ -2969,12 +2970,34 @@ void main(void){
        mensaje2();
        _delay((unsigned long)((50)*(4000000/4000.0)));
 
+       printf("Por favor ingrese la centena, si es <100 colocar 0\r");
        while(RCIF == 0);
-       c1 = RCREG-48;
+       c1 = RCREG -48;
+
+       while(RCREG > '2'){
+           defensa();
+       }
+
+       printf("Por favor ingrese la decena\r");
        while(RCIF == 0);
-       d1 = RCREG-48;
+       d1 = RCREG -48;
+
+       if(c1 == 2){
+           while(RCREG > '5'){
+               defensa1();
+           }
+       }
+
+       printf("Por favor ingrese la unidad\r");
        while(RCIF == 0);
        u1 = RCREG -48;
+
+       if(c1 == 2 && d1 == 5){
+           while(RCREG > '5'){
+               defensa2();
+           }
+       }
+
        sprintf(s1, "%d", c1);
        sprintf(s2, "%d", d1);
        sprintf(s3, "%d", u1);
@@ -2989,7 +3012,7 @@ void main(void){
        _delay((unsigned long)((100)*(4000000/4000.0)));
        TXREG = unidades;
        _delay((unsigned long)((100)*(4000000/4000.0)));
-       PORTB = completo;
+       PORTD = completo;
 
 }
     return;
@@ -3005,7 +3028,7 @@ void putch(char dato){
 
 void division (char dividendo){
 
-    centenas = dividendo/100;
+    centenas = (dividendo)/100;
     residuo = dividendo%100;
     decenas = residuo/10;
     unidades = residuo%10;
@@ -3048,6 +3071,29 @@ void mensaje2(void){
     return;
 }
 
+void defensa(void){
+    if(RCREG > 2){
+           printf("Introduzca un valor valido de 0 a 2\r");
+       }
+       while(RCIF == 0);
+       c1 = RCREG -48;
+}
+
+void defensa1(void){
+    if(RCREG > 5){
+           printf("Introduzca un valor menor o igual a 5\r");
+       }
+       while(RCIF == 0);
+       d1 = RCREG -48;
+}
+
+void defensa2(void){
+    if(RCREG > 5){
+           printf("Introduzca un valor menor o igual a 5\r");
+       }
+       while(RCIF == 0);
+       u1 = RCREG -48;
+}
 
 
 

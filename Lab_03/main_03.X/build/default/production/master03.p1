@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "65 master03.c
-[; ;master03.c: 65:        _delay((unsigned long)((100)*(4000000/4000.0)));
+[; ;master03.c: 65:        if(c1 == 2){
 [v _setup `(v ~T0 @X0 0 ef ]
 "296 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 296:     struct {
@@ -25,20 +25,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./SPI.h: 49: char spiRead();
 [v _spiRead `(uc ~T0 @X0 0 e? ]
 "69 master03.c
-[; ;master03.c: 69:        _delay((unsigned long)((100)*(4000000/4000.0)));
+[; ;master03.c: 69:        }
 [v _division `(v ~T0 @X0 0 ef1`uc ]
 "66
-[; ;master03.c: 66:        TXREG = centenas;
+[; ;master03.c: 66:            while(RCREG > '5'){
 [v _mensaje1 `(v ~T0 @X0 0 ef ]
 "67
-[; ;master03.c: 67:        _delay((unsigned long)((100)*(4000000/4000.0)));
+[; ;master03.c: 67:                defensa1();
 [v _mensaje2 `(v ~T0 @X0 0 ef ]
+"195 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "4175 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4175: extern volatile __bit RCIF __attribute__((address(0x65)));
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "1140
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"70 master03.c
+[; ;master03.c: 70: 
+[v _defensa `(v ~T0 @X0 0 ef ]
+"71
+[; ;master03.c: 71:        printf("Por favor ingrese la unidad\r");
+[v _defensa1 `(v ~T0 @X0 0 ef ]
+"72
+[; ;master03.c: 72:        while(RCIF == 0);
+[v _defensa2 `(v ~T0 @X0 0 ef ]
 "194 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "36 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\string.h
@@ -50,15 +61,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1133 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"228
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "4544
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4544: extern volatile __bit TXIF __attribute__((address(0x64)));
 [v _TXIF `Vb ~T0 @X0 0 e@100 ]
-"195 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"1602 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"1602
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
 "1478
@@ -90,7 +99,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1557
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
 [v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"201 master03.c
+"247 master03.c
 [c E1558 32 33 34 35 36 37 .. ]
 [n E1558 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1566 0 128 .. ]
@@ -108,12 +117,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "290
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
-"352
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "414
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 414: extern volatile unsigned char PORTE __attribute__((address(0x009)));
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
@@ -355,396 +364,568 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;master03.c: 25: 
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "28
-[; ;master03.c: 28:     setup();
+[; ;master03.c: 28: void main(void){
 [p x WDTE  =  OFF        ]
 "30
-[; ;master03.c: 30:     while(1){
+[; ;master03.c: 30: 
 [p x PWRTE  =  OFF       ]
 "31
-[; ;master03.c: 31:         PORTCbits.RC2 = 0;
+[; ;master03.c: 31:     while(1){
 [p x MCLRE  =  OFF       ]
 "33
-[; ;master03.c: 33: 
+[; ;master03.c: 33:        _delay((unsigned long)((1)*(4000000/4000.0)));
 [p x CP  =  OFF          ]
 "35
-[; ;master03.c: 35:        voltaje_a = spiRead();
+[; ;master03.c: 35:        spiWrite(0x0A);
 [p x CPD  =  OFF         ]
 "37
-[; ;master03.c: 37: 
+[; ;master03.c: 37:        _delay((unsigned long)((1)*(4000000/4000.0)));
 [p x BOREN  =  OFF       ]
 "38
-[; ;master03.c: 38:        spiWrite(0x0A);
+[; ;master03.c: 38: 
 [p x IESO  =  OFF        ]
 "40
-[; ;master03.c: 40:        _delay((unsigned long)((1)*(4000000/4000.0)));
+[; ;master03.c: 40:        voltaje_b = spiRead();
 [p x FCMEN  =  OFF       ]
 "42
-[; ;master03.c: 42:        PORTCbits.RC2 = 1;
+[; ;master03.c: 42: 
 [p x LVP  =  OFF         ]
 "46
-[; ;master03.c: 46:        mensaje1();
+[; ;master03.c: 46:        division(voltaje_a);
 [p x BOR4V  =  BOR40V    ]
 "48
-[; ;master03.c: 48:        division(voltaje_b);
+[; ;master03.c: 48:        _delay((unsigned long)((50)*(4000000/4000.0)));
 [p x WRT  =  OFF         ]
 "54
 [; ;master03.c: 54:        while(RCIF == 0);
 [v _voltaje_a `uc ~T0 @X0 1 e ]
 [v _voltaje_b `uc ~T0 @X0 1 e ]
 "55
-[; ;master03.c: 55:        d1 = RCREG-48;
+[; ;master03.c: 55:        c1 = RCREG -48;
 [v _centenas `uc ~T0 @X0 1 e ]
 [v _decenas `uc ~T0 @X0 1 e ]
 [v _unidades `uc ~T0 @X0 1 e ]
 [v _residuo `uc ~T0 @X0 1 e ]
 "56
-[; ;master03.c: 56:        while(RCIF == 0);
+[; ;master03.c: 56: 
 [v _c1 `uc ~T0 @X0 1 e ]
 [v _d1 `uc ~T0 @X0 1 e ]
 [v _u1 `uc ~T0 @X0 1 e ]
 "57
-[; ;master03.c: 57:        u1 = RCREG -48;
-[v _s1 `uc ~T0 @X0 -> 20 `i e ]
+[; ;master03.c: 57:        while(RCREG > '2'){
+[v _s1 `uc ~T0 @X0 -> 10 `i e ]
 "58
-[; ;master03.c: 58:        sprintf(s1, "%d", c1);
-[v _s2 `uc ~T0 @X0 -> 20 `i e ]
+[; ;master03.c: 58:            defensa();
+[v _s2 `uc ~T0 @X0 -> 10 `i e ]
 "59
-[; ;master03.c: 59:        sprintf(s2, "%d", d1);
-[v _s3 `uc ~T0 @X0 -> 20 `i e ]
+[; ;master03.c: 59:        }
+[v _s3 `uc ~T0 @X0 -> 10 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"77
-[; ;master03.c: 77: 
+"78
+[; ;master03.c: 78:            }
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"78
-[; ;master03.c: 78: 
+"79
+[; ;master03.c: 79:        }
 [e ( _setup ..  ]
-"80
-[; ;master03.c: 80: void putch(char dato){
+"81
+[; ;master03.c: 81:        sprintf(s1, "%d", c1);
 [e :U 145 ]
 {
-"81
-[; ;master03.c: 81:     while(TXIF == 0);
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
 "82
-[; ;master03.c: 82:     TXREG = dato;
+[; ;master03.c: 82:        sprintf(s2, "%d", d1);
+[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
+"83
+[; ;master03.c: 83:        sprintf(s3, "%d", u1);
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"84
-[; ;master03.c: 84: }
-[e ( _spiWrite (1 -> -> 10 `i `uc ]
 "85
-[; ;master03.c: 85: 
-[e = _voltaje_a -> ( _spiRead ..  `uc ]
-"86
-[; ;master03.c: 86: void division (char dividendo){
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"88
-[; ;master03.c: 88:     centenas = dividendo/100;
+[; ;master03.c: 85:        strcat(s1, s3);
 [e ( _spiWrite (1 -> -> 10 `i `uc ]
-"89
-[; ;master03.c: 89:     residuo = dividendo%100;
-[e = _voltaje_b -> ( _spiRead ..  `uc ]
-"90
-[; ;master03.c: 90:     decenas = residuo/10;
+"86
+[; ;master03.c: 86:        int completo = atoi(s1);
+[e = _voltaje_a -> ( _spiRead ..  `uc ]
+"87
+[; ;master03.c: 87:        division(completo);
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"92
-[; ;master03.c: 92: 
+"89
+[; ;master03.c: 89:        TXREG = centenas;
+[e ( _spiWrite (1 -> -> 10 `i `uc ]
+"90
+[; ;master03.c: 90:        _delay((unsigned long)((100)*(4000000/4000.0)));
+[e = _voltaje_b -> ( _spiRead ..  `uc ]
+"91
+[; ;master03.c: 91:        TXREG = decenas;
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"93
+[; ;master03.c: 93:        TXREG = unidades;
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-"94
-[; ;master03.c: 94:     decenas += 48;
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "95
-[; ;master03.c: 95:     unidades += 48;
-[e ( _division (1 -> _voltaje_a `uc ]
+[; ;master03.c: 95:        PORTD = completo;
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "96
-[; ;master03.c: 96:     return;
-[e ( _mensaje1 ..  ]
+[; ;master03.c: 96: 
+[e ( _division (1 -> _voltaje_a `uc ]
 "97
 [; ;master03.c: 97: }
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[e ( _mensaje1 ..  ]
 "98
-[; ;master03.c: 98: 
-[e ( _division (1 -> _voltaje_b `uc ]
-"99
-[; ;master03.c: 99: void mensaje1(void){
-[e ( _mensaje2 ..  ]
-"100
-[; ;master03.c: 100:     printf("\rVoltaje1: ");
+[; ;master03.c: 98:     return;
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"102
-[; ;master03.c: 102:     TXREG = centenas;
+"99
+[; ;master03.c: 99: }
+[e ( _division (1 -> _voltaje_b `uc ]
+"100
+[; ;master03.c: 100: 
+[e ( _mensaje2 ..  ]
+"101
+[; ;master03.c: 101: 
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"103
+[; ;master03.c: 103: void putch(char dato){
+[e ( _printf :s 1C ]
+"104
+[; ;master03.c: 104:     while(TXIF == 0);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ == -> _RCIF `i -> 0 `i 148  ]
 [e :U 149 ]
-"103
-[; ;master03.c: 103:     _delay((unsigned long)((50)*(4000000/4000.0)));
+"105
+[; ;master03.c: 105:     TXREG = dato;
 [e = _c1 -> - -> _RCREG `i -> 48 `i `uc ]
-"104
-[; ;master03.c: 104:     printf(".");
+"107
+[; ;master03.c: 107: }
 [e $U 150  ]
 [e :U 151 ]
+{
+"108
+[; ;master03.c: 108: 
+[e ( _defensa ..  ]
+"109
+[; ;master03.c: 109: void division (char dividendo){
+}
 [e :U 150 ]
-[e $ == -> _RCIF `i -> 0 `i 151  ]
+"107
+[; ;master03.c: 107: }
+[e $ > -> _RCREG `ui -> 50 `ui 151  ]
 [e :U 152 ]
-"105
-[; ;master03.c: 105:     _delay((unsigned long)((50)*(4000000/4000.0)));
-[e = _d1 -> - -> _RCREG `i -> 48 `i `uc ]
-"106
-[; ;master03.c: 106:     TXREG = decenas;
+"111
+[; ;master03.c: 111:     centenas = (dividendo)/100;
+[e ( _printf :s 2C ]
+"112
+[; ;master03.c: 112:     residuo = dividendo%100;
 [e $U 153  ]
 [e :U 154 ]
 [e :U 153 ]
 [e $ == -> _RCIF `i -> 0 `i 154  ]
 [e :U 155 ]
-"107
-[; ;master03.c: 107:     _delay((unsigned long)((50)*(4000000/4000.0)));
-[e = _u1 -> - -> _RCREG `i -> 48 `i `uc ]
-"108
-[; ;master03.c: 108:     TXREG = unidades;
-[e ( _sprintf (1 , (. , &U _s1 :s 1C -> _c1 `i ]
-"109
-[; ;master03.c: 109:     _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( _sprintf (1 , (. , &U _s2 :s 2C -> _d1 `i ]
-"110
-[; ;master03.c: 110:     printf("\r\r");
-[e ( _sprintf (1 , (. , &U _s3 :s 3C -> _u1 `i ]
-"111
-[; ;master03.c: 111: 
-[e ( _strcat (2 , &U _s1 -> &U _s2 `*Cuc ]
-"112
-[; ;master03.c: 112:     return;
-[e ( _strcat (2 , &U _s1 -> &U _s3 `*Cuc ]
 "113
-[; ;master03.c: 113: }
+[; ;master03.c: 113:     decenas = residuo/10;
+[e = _d1 -> - -> _RCREG `i -> 48 `i `uc ]
+"115
+[; ;master03.c: 115: 
+[e $ ! == -> _c1 `i -> 2 `i 156  ]
+{
+"116
+[; ;master03.c: 116:     centenas += 48;
+[e $U 157  ]
+[e :U 158 ]
+{
+"117
+[; ;master03.c: 117:     decenas += 48;
+[e ( _defensa1 ..  ]
+"118
+[; ;master03.c: 118:     unidades += 48;
+}
+[e :U 157 ]
+"116
+[; ;master03.c: 116:     centenas += 48;
+[e $ > -> _RCREG `ui -> 53 `ui 158  ]
+[e :U 159 ]
+"119
+[; ;master03.c: 119:     return;
+}
+[e :U 156 ]
+"121
+[; ;master03.c: 121: 
+[e ( _printf :s 3C ]
+"122
+[; ;master03.c: 122: void mensaje1(void){
+[e $U 160  ]
+[e :U 161 ]
+[e :U 160 ]
+[e $ == -> _RCIF `i -> 0 `i 161  ]
+[e :U 162 ]
+"123
+[; ;master03.c: 123:     printf("\rVoltaje1: ");
+[e = _u1 -> - -> _RCREG `i -> 48 `i `uc ]
+"125
+[; ;master03.c: 125:     TXREG = centenas;
+[e $ ! && == -> _c1 `i -> 2 `i == -> _d1 `i -> 5 `i 163  ]
+{
+"126
+[; ;master03.c: 126:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e $U 164  ]
+[e :U 165 ]
+{
+"127
+[; ;master03.c: 127:     printf(".");
+[e ( _defensa2 ..  ]
+"128
+[; ;master03.c: 128:     _delay((unsigned long)((50)*(4000000/4000.0)));
+}
+[e :U 164 ]
+"126
+[; ;master03.c: 126:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e $ > -> _RCREG `ui -> 53 `ui 165  ]
+[e :U 166 ]
+"129
+[; ;master03.c: 129:     TXREG = decenas;
+}
+[e :U 163 ]
+"131
+[; ;master03.c: 131:     TXREG = unidades;
+[e ( _sprintf (1 , (. , &U _s1 :s 4C -> _c1 `i ]
+"132
+[; ;master03.c: 132:     _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( _sprintf (1 , (. , &U _s2 :s 5C -> _d1 `i ]
+"133
+[; ;master03.c: 133:     printf("\r\r");
+[e ( _sprintf (1 , (. , &U _s3 :s 6C -> _u1 `i ]
+"134
+[; ;master03.c: 134: 
+[e ( _strcat (2 , &U _s1 -> &U _s2 `*Cuc ]
+"135
+[; ;master03.c: 135:     return;
+[e ( _strcat (2 , &U _s1 -> &U _s3 `*Cuc ]
+"136
+[; ;master03.c: 136: }
 [v _completo `i ~T0 @X0 1 a ]
 [e = _completo ( _atoi (1 -> &U _s1 `*Cuc ]
-"114
-[; ;master03.c: 114: 
+"137
+[; ;master03.c: 137: 
 [e ( _division (1 -> _completo `uc ]
-"115
-[; ;master03.c: 115: void mensaje2(void){
+"138
+[; ;master03.c: 138: void mensaje2(void){
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"116
-[; ;master03.c: 116:     printf("\rVoltaje2: ");
+"139
+[; ;master03.c: 139:     printf("\rVoltaje2: ");
 [e = _TXREG _centenas ]
-"117
-[; ;master03.c: 117:     _delay((unsigned long)((50)*(4000000/4000.0)));
+"140
+[; ;master03.c: 140:     _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"118
-[; ;master03.c: 118:     TXREG = centenas;
+"141
+[; ;master03.c: 141:     TXREG = centenas;
 [e = _TXREG _decenas ]
-"119
-[; ;master03.c: 119:     _delay((unsigned long)((50)*(4000000/4000.0)));
+"142
+[; ;master03.c: 142:     _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"120
-[; ;master03.c: 120:     printf(".");
+"143
+[; ;master03.c: 143:     printf(".");
 [e = _TXREG _unidades ]
-"121
-[; ;master03.c: 121:     _delay((unsigned long)((50)*(4000000/4000.0)));
+"144
+[; ;master03.c: 144:     _delay((unsigned long)((50)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"122
-[; ;master03.c: 122:     TXREG = decenas;
-[e = _PORTB -> _completo `uc ]
-"124
-[; ;master03.c: 124:     TXREG = unidades;
+"145
+[; ;master03.c: 145:     TXREG = decenas;
+[e = _PORTD -> _completo `uc ]
+"147
+[; ;master03.c: 147:     TXREG = unidades;
 }
 [e :U 144 ]
 [e $U 145  ]
 [e :U 146 ]
-"125
-[; ;master03.c: 125:     _delay((unsigned long)((50)*(4000000/4000.0)));
+"148
+[; ;master03.c: 148:     _delay((unsigned long)((50)*(4000000/4000.0)));
 [e $UE 143  ]
-"126
-[; ;master03.c: 126:     printf("\r\r");
+"149
+[; ;master03.c: 149:     printf("\r\r");
 [e :UE 143 ]
 }
-"130
-[; ;master03.c: 130: 
+"153
+[; ;master03.c: 153: 
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _putch ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"131
-[; ;master03.c: 131: 
-[e $U 157  ]
-[e :U 158 ]
-[e :U 157 ]
-[e $ == -> _TXIF `i -> 0 `i 158  ]
-[e :U 159 ]
-"132
-[; ;master03.c: 132: 
+"154
+[; ;master03.c: 154: void defensa(void){
+[e $U 168  ]
+[e :U 169 ]
+[e :U 168 ]
+[e $ == -> _TXIF `i -> 0 `i 169  ]
+[e :U 170 ]
+"155
+[; ;master03.c: 155:     if(RCREG > 2){
 [e = _TXREG -> _dato `uc ]
-"133
-[; ;master03.c: 133: 
-[e $UE 156  ]
-"134
-[; ;master03.c: 134: 
-[e :UE 156 ]
+"156
+[; ;master03.c: 156:            printf("Introduzca un valor valido de 0 a 2\r");
+[e $UE 167  ]
+"157
+[; ;master03.c: 157:        }
+[e :UE 167 ]
 }
-"136
-[; ;master03.c: 136: 
+"159
+[; ;master03.c: 159:        c1 = RCREG -48;
 [v _division `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _division ]
 [v _dividendo `uc ~T0 @X0 1 r1 ]
 [f ]
-"138
-[; ;master03.c: 138:     TRISB = 0x00;
+"161
+[; ;master03.c: 161: 
 [e = _centenas -> / -> _dividendo `i -> 100 `i `uc ]
-"139
-[; ;master03.c: 139: 
+"162
+[; ;master03.c: 162: void defensa1(void){
 [e = _residuo -> % -> _dividendo `i -> 100 `i `uc ]
-"140
-[; ;master03.c: 140:     OSCCONbits.IRCF0 = 0;
+"163
+[; ;master03.c: 163:     if(RCREG > 5){
 [e = _decenas -> / -> _residuo `i -> 10 `i `uc ]
-"141
-[; ;master03.c: 141:     OSCCONbits.IRCF1 = 1;
+"164
+[; ;master03.c: 164:            printf("Introduzca un valor menor o igual a 5\r");
 [e = _unidades -> % -> _residuo `i -> 10 `i `uc ]
-"143
-[; ;master03.c: 143:     OSCCONbits.SCS = 1;
+"166
+[; ;master03.c: 166:        while(RCIF == 0);
 [e =+ _centenas -> -> 48 `i `uc ]
-"144
-[; ;master03.c: 144: 
+"167
+[; ;master03.c: 167:        d1 = RCREG -48;
 [e =+ _decenas -> -> 48 `i `uc ]
-"145
-[; ;master03.c: 145: 
+"168
+[; ;master03.c: 168: }
 [e =+ _unidades -> -> 48 `i `uc ]
-"146
-[; ;master03.c: 146: 
-[e $UE 160  ]
-"147
-[; ;master03.c: 147: 
-[e :UE 160 ]
+"169
+[; ;master03.c: 169: 
+[e $UE 171  ]
+"170
+[; ;master03.c: 170: void defensa2(void){
+[e :UE 171 ]
 }
-"149
-[; ;master03.c: 149: 
+"172
+[; ;master03.c: 172:            printf("Introduzca un valor menor o igual a 5\r");
 [v _mensaje1 `(v ~T0 @X0 1 ef ]
 {
 [e :U _mensaje1 ]
 [f ]
-"150
-[; ;master03.c: 150: 
-[e ( _printf :s 4C ]
-"151
-[; ;master03.c: 151:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,
+"173
+[; ;master03.c: 173:        }
+[e ( _printf :s 7C ]
+"174
+[; ;master03.c: 174:        while(RCIF == 0);
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"152
-[; ;master03.c: 152:             SPI_IDLE_2_ACTIVE);
+"175
+[; ;master03.c: 175:        u1 = RCREG -48;
 [e = _TXREG _centenas ]
-"153
-[; ;master03.c: 153: 
+"176
+[; ;master03.c: 176: }
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"154
-[; ;master03.c: 154:     config_USART();
-[e ( _printf :s 5C ]
-"155
-[; ;master03.c: 155: 
+"177
+[; ;master03.c: 177: 
+[e ( _printf :s 8C ]
+"178
+[; ;master03.c: 178: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"156
-[; ;master03.c: 156: 
+"179
+[; ;master03.c: 179: 
 [e = _TXREG _decenas ]
-"157
-[; ;master03.c: 157:     PORTA = 0x00;
+"180
+[; ;master03.c: 180: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"158
-[; ;master03.c: 158:     PORTB = 0x00;
+"181
+[; ;master03.c: 181: void setup(void){
 [e = _TXREG _unidades ]
-"159
-[; ;master03.c: 159:     PORTC = 0x00;
+"182
+[; ;master03.c: 182: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"160
-[; ;master03.c: 160:     PORTD = 0x00;
-[e ( _printf :s 6C ]
-"162
-[; ;master03.c: 162: 
-[e $UE 161  ]
-"163
-[; ;master03.c: 163:     return;
-[e :UE 161 ]
+"183
+[; ;master03.c: 183:     TRISD = 0x00;
+[e ( _printf :s 9C ]
+"185
+[; ;master03.c: 185: 
+[e $UE 172  ]
+"186
+[; ;master03.c: 186:     OSCCONbits.IRCF0 = 0;
+[e :UE 172 ]
 }
-"165
+"188
+[; ;master03.c: 188:     OSCCONbits.IRCF2 = 1;
 [v _mensaje2 `(v ~T0 @X0 1 ef ]
 {
 [e :U _mensaje2 ]
 [f ]
-"166
-[e ( _printf :s 7C ]
-"167
+"189
+[; ;master03.c: 189:     OSCCONbits.SCS = 1;
+[e ( _printf :s 10C ]
+"190
+[; ;master03.c: 190: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"168
+"191
+[; ;master03.c: 191: 
 [e = _TXREG _centenas ]
-"169
+"192
+[; ;master03.c: 192: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"170
-[e ( _printf :s 8C ]
-"171
+"193
+[; ;master03.c: 193: 
+[e ( _printf :s 11C ]
+"194
+[; ;master03.c: 194:     TRISCbits.TRISC2 = 0;
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"172
+"195
+[; ;master03.c: 195: 
 [e = _TXREG _decenas ]
-"173
+"196
+[; ;master03.c: 196: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"174
+"197
+[; ;master03.c: 197:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW,
 [e = _TXREG _unidades ]
-"175
+"198
+[; ;master03.c: 198:             SPI_IDLE_2_ACTIVE);
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"176
-[e ( _printf :s 9C ]
-"178
-[e $UE 162  ]
-"179
-[e :UE 162 ]
+"199
+[; ;master03.c: 199: 
+[e ( _printf :s 12C ]
+"201
+[; ;master03.c: 201: 
+[e $UE 173  ]
+"202
+[; ;master03.c: 202: 
+[e :UE 173 ]
 }
-"185
+"204
+[; ;master03.c: 204:     PORTB = 0x00;
+[v _defensa `(v ~T0 @X0 1 ef ]
+{
+[e :U _defensa ]
+[f ]
+"205
+[; ;master03.c: 205:     PORTC = 0x00;
+[e $ ! > -> _RCREG `i -> 2 `i 175  ]
+{
+"206
+[; ;master03.c: 206:     PORTD = 0x00;
+[e ( _printf :s 13C ]
+"207
+[; ;master03.c: 207:     PORTE = 0x00;
+}
+[e :U 175 ]
+"208
+[; ;master03.c: 208: 
+[e $U 176  ]
+[e :U 177 ]
+[e :U 176 ]
+[e $ == -> _RCIF `i -> 0 `i 177  ]
+[e :U 178 ]
+"209
+[; ;master03.c: 209:     return;
+[e = _c1 -> - -> _RCREG `i -> 48 `i `uc ]
+"210
+[; ;master03.c: 210: }
+[e :UE 174 ]
+}
+"212
+[v _defensa1 `(v ~T0 @X0 1 ef ]
+{
+[e :U _defensa1 ]
+[f ]
+"213
+[e $ ! > -> _RCREG `i -> 5 `i 180  ]
+{
+"214
+[e ( _printf :s 14C ]
+"215
+}
+[e :U 180 ]
+"216
+[e $U 181  ]
+[e :U 182 ]
+[e :U 181 ]
+[e $ == -> _RCIF `i -> 0 `i 182  ]
+[e :U 183 ]
+"217
+[e = _d1 -> - -> _RCREG `i -> 48 `i `uc ]
+"218
+[e :UE 179 ]
+}
+"220
+[v _defensa2 `(v ~T0 @X0 1 ef ]
+{
+[e :U _defensa2 ]
+[f ]
+"221
+[e $ ! > -> _RCREG `i -> 5 `i 185  ]
+{
+"222
+[e ( _printf :s 15C ]
+"223
+}
+[e :U 185 ]
+"224
+[e $U 186  ]
+[e :U 187 ]
+[e :U 186 ]
+[e $ == -> _RCIF `i -> 0 `i 187  ]
+[e :U 188 ]
+"225
+[e = _u1 -> - -> _RCREG `i -> 48 `i `uc ]
+"226
+[e :UE 184 ]
+}
+"231
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"187
+"233
 [e = _TRISD -> -> 0 `i `uc ]
-"188
+"234
 [e = _TRISB -> -> 0 `i `uc ]
-"190
+"236
 [e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"191
+"237
 [e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"192
+"238
 [e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"193
+"239
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"198
+"244
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-"201
+"247
 [e ( _spiInit (4 , , , . `E1558 0 . `E1566 0 . `E1570 1 . `E1574 0 ]
-"204
+"250
 [e ( _config_USART ..  ]
-"207
+"253
 [e = _PORTA -> -> 0 `i `uc ]
-"208
+"254
 [e = _PORTB -> -> 0 `i `uc ]
-"209
+"255
 [e = _PORTC -> -> 0 `i `uc ]
-"210
+"256
 [e = _PORTD -> -> 0 `i `uc ]
-"211
+"257
 [e = _PORTE -> -> 0 `i `uc ]
-"213
-[e $UE 163  ]
-"214
-[e :UE 163 ]
+"259
+[e $UE 189  ]
+"260
+[e :UE 189 ]
 }
-[p f _printf 8388608 ]
 [p f _sprintf 8388736 ]
-[a 1C 37 100 0 ]
-[a 2C 37 100 0 ]
-[a 3C 37 100 0 ]
-[a 5C 46 0 ]
+[p f _printf 8388608 ]
+[a 4C 37 100 0 ]
+[a 5C 37 100 0 ]
+[a 6C 37 100 0 ]
 [a 8C 46 0 ]
-[a 7C 13 86 111 108 116 97 106 101 50 58 32 0 ]
-[a 4C 13 86 111 108 116 97 106 101 49 58 32 0 ]
-[a 6C 13 13 0 ]
+[a 11C 46 0 ]
+[a 10C 13 86 111 108 116 97 106 101 50 58 32 0 ]
+[a 7C 13 86 111 108 116 97 106 101 49 58 32 0 ]
+[a 3C 80 111 114 32 102 97 118 111 114 32 105 110 103 114 101 115 101 32 108 97 32 117 110 105 100 97 100 13 0 ]
+[a 2C 80 111 114 32 102 97 118 111 114 32 105 110 103 114 101 115 101 32 108 97 32 100 101 99 101 110 97 13 0 ]
+[a 14C 73 110 116 114 111 100 117 122 99 97 32 117 110 32 118 97 108 111 114 32 109 101 110 111 114 32 111 32 105 103 117 97 108 32 97 32 53 13 0 ]
+[a 15C 73 110 116 114 111 100 117 122 99 97 32 117 110 32 118 97 108 111 114 32 109 101 110 111 114 32 111 32 105 103 117 97 108 32 97 32 53 13 0 ]
+[a 13C 73 110 116 114 111 100 117 122 99 97 32 117 110 32 118 97 108 111 114 32 118 97 108 105 100 111 32 100 101 32 48 32 97 32 50 13 0 ]
+[a 1C 80 111 114 32 102 97 118 111 114 32 105 110 103 114 101 115 101 32 108 97 32 99 101 110 116 101 110 97 44 32 115 105 32 101 115 32 60 49 48 48 32 99 111 108 111 99 97 114 32 48 13 0 ]
 [a 9C 13 13 0 ]
+[a 12C 13 13 0 ]

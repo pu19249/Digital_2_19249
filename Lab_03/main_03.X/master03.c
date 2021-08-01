@@ -54,9 +54,9 @@
 uint8_t voltaje_a, voltaje_b;
 uint8_t centenas, decenas, unidades, residuo;
 uint8_t c1, d1, u1;
-char s1[20];
-char s2[20];
-char s3[20];
+char s1[10];
+char s2[10];
+char s3[10];
 
 /*==============================================================================
                         INTERRUPCIONES Y PROTOTIPOS
@@ -67,8 +67,9 @@ void mensaje1(void);
 void mensaje2(void);
 void putch(char dato);
 void division(char dividendo);
-
-
+void defensa(void);
+void defensa1(void);
+void defensa2(void);
 
 /*==============================================================================
                              LOOP PRINCIPAL
@@ -99,19 +100,41 @@ void main(void){
        mensaje2();
        __delay_ms(50);
        
-       while(RCIF == 0);
-       c1 = RCREG-48;
-       while(RCIF == 0);
-       d1 = RCREG-48;
-       while(RCIF == 0);
+       printf("Por favor ingrese la centena, si es <100 colocar 0\r");
+       while(RCIF == 0); //esta secuencia va a recibir tres valores seguidos
+       c1 = RCREG -48; //sin desplegar nada en ninguna parte 
+       
+       while(RCREG > '2'){ 
+           defensa();
+       }
+       
+       printf("Por favor ingrese la decena\r");
+       while(RCIF == 0); //al restar -48 lo recibimos como decimal
+       d1 = RCREG -48; //tenemos tres variables que nos serviran para armar
+       
+       if(c1 == 2){
+           while(RCREG > '5'){
+               defensa1();
+           }
+       }
+       
+       printf("Por favor ingrese la unidad\r");
+       while(RCIF == 0); //el numero completo
        u1 = RCREG -48;
-       sprintf(s1, "%d", c1);
-       sprintf(s2, "%d", d1);
+       
+       if(c1 == 2 && d1 == 5){
+           while(RCREG > '5'){
+               defensa2();
+           }
+       }
+       
+       sprintf(s1, "%d", c1); //con esto lo convertimos primero a decimal 
+       sprintf(s2, "%d", d1); //y lo almacenamos como strings en los buffer
        sprintf(s3, "%d", u1);
-       strcat(s1, s2);
-       strcat(s1, s3);
-       int completo = atoi(s1);
-       division(completo);
+       strcat(s1, s2); //concatenamos s2 con s1, ahora estan en s1
+       strcat(s1, s3); //concatenamos s3 con s1 = (s1+s2)
+       int completo = atoi(s1); //ahora lo pasamos a un entero
+       division(completo); //y lo dividimos para verificar su valor en el UART
        __delay_ms(100);
        TXREG = centenas;
        __delay_ms(100);
@@ -119,7 +142,7 @@ void main(void){
        __delay_ms(100);
        TXREG = unidades;
        __delay_ms(100);
-       PORTB = completo;
+       PORTD = completo; //ahora lo despliega ya con su correspondiente en bin.
        
 }
     return;
@@ -135,7 +158,7 @@ void putch(char dato){      //para la transmision
 
 void division (char dividendo){
     
-    centenas = dividendo/100;//esto me divide entre 100 y se queda con el entero
+    centenas = (dividendo)/100;//esto me divide entre 100 y se queda con el entero
     residuo = dividendo%100; //el residuo de lo que estoy operando
     decenas = residuo/10; 
     unidades = residuo%10; //se queda con las unidades de las decenas
@@ -178,6 +201,29 @@ void mensaje2(void){
     return;
 }
 
+void defensa(void){
+    if(RCREG > 2){
+           printf("Introduzca un valor valido de 0 a 2\r");   
+       }
+       while(RCIF == 0);
+       c1 = RCREG -48;
+}
+
+void defensa1(void){
+    if(RCREG > 5){
+           printf("Introduzca un valor menor o igual a 5\r");   
+       }
+       while(RCIF == 0);
+       d1 = RCREG -48;
+}
+
+void defensa2(void){
+    if(RCREG > 5){
+           printf("Introduzca un valor menor o igual a 5\r");   
+       }
+       while(RCIF == 0);
+       u1 = RCREG -48;
+}
 /*==============================================================================
                          CONFIGURACION DEL PIC
  =============================================================================*/
