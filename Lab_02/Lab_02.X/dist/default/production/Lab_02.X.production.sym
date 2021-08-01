@@ -62,7 +62,7 @@ __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _division 25A 0 CODE 0
 _PIR1bits C 0 ABS 0
-_contador 2D 0 BANK0 1
+_contador 2B 0 BANK0 1
 ___int_sp 0 0 STACK 2
 ?___awdiv 73 0 COMMON 1
 _Lcd_Port 57F 0 CODE 0
@@ -93,7 +93,7 @@ ___awmod@sign 21 0 BANK0 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main F5 0 CODE 0
+__end_of_main E7 0 CODE 0
 __end_of_Lcd_Cmd 568 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
@@ -163,7 +163,7 @@ __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hcinit 20 0 CODE 0
 __Lcinit F 0 CODE 0
-_residuo 2E 0 BANK0 1
+_residuo 2C 0 BANK0 1
 ___awdiv 1F1 0 CODE 0
 __size_of_Lcd_Write_String 0 0 ABS 0
 __Hspace_3 0 0 ABS 0
@@ -179,7 +179,7 @@ __end_of_mensaje 42B 0 CODE 0
 __end_of_mensaje1 1F1 0 CODE 0
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
-__pbssBANK0 2B 0 BANK0 1
+__pbssBANK0 29 0 BANK0 1
 __ptext10 1F1 0 CODE 0
 __ptext11 4A8 0 CODE 0
 __ptext12 515 0 CODE 0
@@ -210,8 +210,8 @@ __Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __size_of_division 0 0 ABS 0
 _mensaje1 180 0 CODE 0
-_voltaje1 32 0 BANK0 1
-_voltaje2 31 0 BANK0 1
+_voltaje1 30 0 BANK0 1
+_voltaje2 2F 0 BANK0 1
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
 intlevel2 0 0 ENTRY 0
@@ -244,14 +244,14 @@ division@dividendo 27 0 BANK0 1
 ___awdiv@dividend 75 0 COMMON 1
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 1E9 CODE 8 0
+intentry 8 1CD CODE 8 0
 cstackCOMMON 70 7A COMMON 70 1
-cstackBANK0 20 32 BANK0 20 1
+cstackBANK0 20 30 BANK0 20 1
 strings 200 2FF STRING 200 0
 text4 300 B09 CODE 300 0
 %locals
 dist/default/production\Lab_02.X.production.o
-C:\Users\jpu20\AppData\Local\Temp\skm8.s
+C:\Users\jpu20\AppData\Local\Temp\s7dc.s
 1148 F 0 CODE 0
 1151 F 0 CODE 0
 1195 F 0 CODE 0
@@ -305,10 +305,9 @@ main_02.c
 144 C1 0 CODE 0
 145 C7 0 CODE 0
 146 CD 0 CODE 0
-150 D3 0 CODE 0
-152 E1 0 CODE 0
-153 E7 0 CODE 0
-154 EE 0 CODE 0
+152 D3 0 CODE 0
+153 D9 0 CODE 0
+154 E0 0 CODE 0
 222 4D1 0 CODE 0
 224 4D1 0 CODE 0
 225 4D5 0 CODE 0

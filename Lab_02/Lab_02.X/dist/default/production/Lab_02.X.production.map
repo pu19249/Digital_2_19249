@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\Lab_02.X.production.sym \
   --cmf=dist/default/production\Lab_02.X.production.cmf -z -Q16F887 \
-  -oC:\Users\jpu20\AppData\Local\Temp\skm8.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jpu20\AppData\Local\Temp\s7dc.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Lab_02.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\jpu20\AppData\Local\Temp\skm8.o \
+  -pfunctab=ENTRY -k C:\Users\jpu20\AppData\Local\Temp\s7dc.o \
   dist/default/production\Lab_02.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jpu20\AppData\Local\Temp\skm8.o
+C:\Users\jpu20\AppData\Local\Temp\s7dc.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -54,10 +54,10 @@ dist/default/production\Lab_02.X.production.o
                 text3                               2C2      2C2       65      300       0
                 text2                               532      532       1C      300       0
                 text1                               4D1      4D1       25      300       0
-                maintext                             20       20       D5        8       0
-                cstackBANK0                          20       20        B       20       1
+                maintext                             20       20       C7        8       0
+                cstackBANK0                          20       20        9       20       1
                 cstackCOMMON                         70       70        8       70       1
-                bssBANK0                             2B       2B        8       20       1
+                bssBANK0                             29       29        8       20       1
                 bssCOMMON                            78       78        3       70       1
                 strings                             100      100       80      200       0
 
@@ -87,7 +87,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text3                               2C2      2C2       65         0
                 text2                               532      532       1C         0
                 text1                               4D1      4D1       25         0
-                maintext                             20       20       D5         0
+                maintext                             20       20       C7         0
 
         CLASS   STRCODE        
 
@@ -103,8 +103,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssCOMMON                            78       78        3         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20        B         1
-                bssBANK0                             2B       2B        8         1
+                cstackBANK0                          20       20        9         1
+                bssBANK0                             29       29        8         1
 
         CLASS   BANK1          
 
@@ -137,8 +137,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                intentry                       000004  0000F1  0000F5         8       0  CODE        2
-                cstackBANK0                    000020  000013  000033        20       1  BANK0       1
+                intentry                       000004  0000E3  0000E7         8       0  CODE        2
+                cstackBANK0                    000020  000011  000031        20       1  BANK0       1
                 cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
                 strings                        000100  000080  000180       200       0  STRING      2
                 text4                          000180  000405  000585       300       0  CODE        2
@@ -147,23 +147,23 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0033-006F             3D           1
+        BANK0            0031-006F             3F           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
-                         00F5-00FF              B
+                         00E7-00FF             19
                          0585-1FFF            800
         COMMON           007B-007D              3           1
         CONST            0003-0003              1           2
-                         00F5-00FF              B
+                         00E7-00FF             19
                          0585-1FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
-                         00F5-00FF              B
+                         00E7-00FF             19
                          0585-1FFF            100
         IDLOC            2000-2003              4           2
-        RAM              0033-006F             3D           1
+        RAM              0031-006F             3F           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -173,10 +173,10 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
-                         00F5-00FF              B
+                         00E7-00FF             19
                          0585-1FFF           1A7B
         STRING           0003-0003              1           2
-                         00F5-00FF              B
+                         00E7-00FF             19
                          0585-1FFF            100
 
                                   Symbol Table
@@ -335,14 +335,14 @@ __end_of_config_ADC        text3        0327
 __end_of_config_USART      text2        054E
 __end_of_division          text8        02C2
 __end_of_isr               text18       04A8
-__end_of_main              maintext     00F5
+__end_of_main              maintext     00E7
 __end_of_mensaje           text5        042B
 __end_of_mensaje1          text4        01F1
 __end_of_printf            text6        0515
 __end_of_putch             text7        057F
 __end_of_setup             text1        04F6
 __initialization           cinit        000F
-__pbssBANK0                bssBANK0     002B
+__pbssBANK0                bssBANK0     0029
 __pbssCOMMON               bssCOMMON    0078
 __pcstackBANK0             cstackBANK0  0020
 __pcstackCOMMON            cstackCOMMON 0070
@@ -391,7 +391,7 @@ __stringtab                strings      0100
 _centenas                  bssCOMMON    007A
 _config_ADC                text3        02C2
 _config_USART              text2        0532
-_contador                  bssBANK0     002D
+_contador                  bssBANK0     002B
 _decenas                   bssCOMMON    0079
 _division                  text8        025A
 _isr                       text18       0479
@@ -400,11 +400,11 @@ _mensaje                   text5        03DA
 _mensaje1                  text4        0180
 _printf                    text6        04F6
 _putch                     text7        0575
-_residuo                   bssBANK0     002E
+_residuo                   bssBANK0     002C
 _setup                     text1        04D1
 _unidades                  bssCOMMON    0078
-_voltaje1                  bssBANK0     0032
-_voltaje2                  bssBANK0     0031
+_voltaje1                  bssBANK0     0030
+_voltaje2                  bssBANK0     002F
 btemp                      (abs)        007E
 config_ADC@frec            cstackCOMMON 0075
 division@dividendo         cstackBANK0  0027
@@ -447,9 +447,9 @@ FUNCTION INFORMATION:
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
       Locals:         0       0       0       0       0
-      Temps:          0       3       0       0       0
-      Totals:         0       3       0       0       0
-Total ram usage:        3 bytes
+      Temps:          0       1       0       0       0
+      Totals:         0       1       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels required when called:    4
  This function calls:
 		_Lcd_Clear
@@ -1082,14 +1082,14 @@ shared estimated size: 19
 
 main_02.c
 		_putch         		CODE           	0575	0000	10
-		_main          		CODE           	0020	0000	213
+		_main          		CODE           	0020	0000	199
 		_isr           		CODE           	0479	0000	47
 		_mensaje       		CODE           	03DA	0000	81
 		_mensaje1      		CODE           	0180	0000	113
 		_division      		CODE           	025A	0000	104
 		_setup         		CODE           	04D1	0000	37
 
-main_02.c estimated size: 605
+main_02.c estimated size: 591
 
 LCD_8b.c
 		_Lcd_Write_String		CODE           	04A8	0000	41

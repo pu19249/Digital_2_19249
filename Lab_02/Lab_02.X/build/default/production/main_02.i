@@ -2963,7 +2963,7 @@ void main(void){
 
 
 
-    _delay((unsigned long)((1000)*(4000000/4000.0)));
+
 
     if (ADCON0bits.GO == 0){
             _delay((unsigned long)((100)*(4000000/4000000.0)));

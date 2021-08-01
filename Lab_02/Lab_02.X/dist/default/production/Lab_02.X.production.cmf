@@ -31,15 +31,15 @@ text15 CODE 0 568 568 D 2
 text16 CODE 0 54E 54E 1A 2
 text17 CODE 0 57F 57F 6 2
 text18 CODE 0 479 479 2F 2
-maintext CODE 0 20 20 D5 2
+maintext CODE 0 20 20 C7 2
 cstackCOMMON COMMON 1 70 70 8 1
-cstackBANK0 BANK0 1 20 20 B 1
+cstackBANK0 BANK0 1 20 20 9 1
 intentry CODE 0 4 4 8 2
-bssBANK0 BANK0 1 2B 2B 8 1
+bssBANK0 BANK0 1 29 29 8 1
 strings STRING 0 100 100 80 2
 bssCOMMON COMMON 1 78 78 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\jpu20\AppData\Local\Temp\skm8.o
+$C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -49,24 +49,24 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 33-6F 1
+RAM 31-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 33-6F 1
+BANK0 31-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST F5-FF 2
+CONST E7-FF 2
 CONST 585-1FFF 2
 ENTRY 3-3 2
-ENTRY F5-FF 2
+ENTRY E7-FF 2
 ENTRY 585-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE F5-FF 2
+CODE E7-FF 2
 CODE 585-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -75,10 +75,10 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE F5-FF 2
+STRCODE E7-FF 2
 STRCODE 585-1FFF 2
 STRING 3-3 2
-STRING F5-FF 2
+STRING E7-FF 2
 STRING 585-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -94,24 +94,24 @@ STRING 585-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab_02.X.production.o
-F cinit CODE >1148:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-F cinit CODE >1151:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-F cinit CODE >1195:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-10 cinit CODE >1196:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-11 cinit CODE >1197:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-12 cinit CODE >1200:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-13 cinit CODE >1201:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-14 cinit CODE >1202:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-15 cinit CODE >1203:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-16 cinit CODE >1204:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-17 cinit CODE >1205:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-18 cinit CODE >1206:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-19 cinit CODE >1207:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-1A cinit CODE >1208:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-1B cinit CODE >1209:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-1C cinit CODE >1215:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-1C cinit CODE >1217:C:\Users\jpu20\AppData\Local\Temp\skm8.s
-1D cinit CODE >1218:C:\Users\jpu20\AppData\Local\Temp\skm8.s
+F cinit CODE >1148:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+F cinit CODE >1151:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+F cinit CODE >1195:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+10 cinit CODE >1196:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+11 cinit CODE >1197:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+12 cinit CODE >1200:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+13 cinit CODE >1201:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+14 cinit CODE >1202:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+15 cinit CODE >1203:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+16 cinit CODE >1204:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+17 cinit CODE >1205:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+18 cinit CODE >1206:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+19 cinit CODE >1207:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+1A cinit CODE >1208:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+1B cinit CODE >1209:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+1C cinit CODE >1215:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+1C cinit CODE >1217:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
+1D cinit CODE >1218:C:\Users\jpu20\AppData\Local\Temp\s7dc.s
 4 intentry CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 479 text18 CODE >83:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 479 text18 CODE >85:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
@@ -385,10 +385,9 @@ BB maintext CODE >143:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab
 C1 maintext CODE >144:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 C7 maintext CODE >145:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 CD maintext CODE >146:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-D3 maintext CODE >150:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-E1 maintext CODE >152:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-E7 maintext CODE >153:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
-EE maintext CODE >154:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+D3 maintext CODE >152:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+D9 maintext CODE >153:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
+E0 maintext CODE >154:C:\Users\jpu20\Documents\GitHub\Digital_2_19249\Lab_02\Lab_02.X\main_02.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -420,11 +419,11 @@ __Hstrings 0 0 ABS 0 strings -
 _ADIF 66 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _RCIF 65 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\skm8.o
+___sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 _main 40 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _Lcd_Write_Char A2A 0 CODE 0 text12 dist/default/production\Lab_02.X.production.o
-start 18 0 CODE 0 init C:\Users\jpu20\AppData\Local\Temp\skm8.o
+start 18 0 CODE 0 init C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
@@ -436,12 +435,12 @@ __Hpowerup 0 0 CODE 0 powerup -
 printf@c 76 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 printf@f 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 ___awmod@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\skm8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _division 4B4 0 CODE 0 text8 dist/default/production\Lab_02.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab_02.X.production.o
@@ -463,8 +462,8 @@ __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 __end_of___awdiv 4B4 0 CODE 0 text10 dist/default/production\Lab_02.X.production.o
 __end_of___awmod 704 0 CODE 0 text9 dist/default/production\Lab_02.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\skm8.o
-___stacklo 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\skm8.o
+___stackhi 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\s7dc.o
+___stacklo 0 0 ABS 0 - C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_putch 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
@@ -476,9 +475,9 @@ _Lcd_Write_String 950 0 CODE 0 text11 dist/default/production\Lab_02.X.productio
 _SPBRGH 9A 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 __end_of_printf A2A 0 CODE 0 text6 dist/default/production\Lab_02.X.production.o
-_residuo 2E 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+_residuo 2C 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Cmd 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\skm8.o
+___int_sp 0 0 STACK 2 stack C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -497,8 +496,8 @@ __Lcinit 1E 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
 _PORTEbits 9 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production\Lab_02.X.production.o
-_voltaje1 32 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
-_voltaje2 31 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+_voltaje1 30 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+_voltaje2 2F 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 18 0 CODE 0 init -
@@ -533,7 +532,7 @@ __size_of_Lcd_Write_String 0 0 ABS 0 - dist/default/production\Lab_02.X.producti
 __stringtab 200 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
 Lcd_Write_String@a 22 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
 Lcd_Write_String@i 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab_02.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jpu20\AppData\Local\Temp\skm8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jpu20\AppData\Local\Temp\s7dc.o
 __size_of_Lcd_Clear 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __end_of_Lcd_Cmd AD0 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
@@ -616,7 +615,7 @@ _TXSTAbits 98 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Init 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __size_of_Lcd_Port 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 1EA 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
+__end_of_main 1CE 0 CODE 0 maintext dist/default/production\Lab_02.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Lab_02.X.production.o
@@ -639,9 +638,9 @@ __pintentry 8 0 CODE 0 intentry dist/default/production\Lab_02.X.production.o
 _Lcd_Cmd A9C 0 CODE 0 text16 dist/default/production\Lab_02.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\Lab_02.X.production.o
 _centenas 7A 0 COMMON 1 bssCOMMON dist/default/production\Lab_02.X.production.o
-_contador 2D 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+_contador 2B 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __initialization 1E 0 CODE 0 cinit dist/default/production\Lab_02.X.production.o
-__pbssBANK0 2B 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
+__pbssBANK0 29 0 BANK0 1 bssBANK0 dist/default/production\Lab_02.X.production.o
 __pstrings 200 0 STRING 0 strings dist/default/production\Lab_02.X.production.o
 Lcd_Write_Char@a 75 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
 Lcd_Write_Char@y 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.production.o
@@ -672,8 +671,8 @@ Lcd_Write_Char@y 77 0 COMMON 1 cstackCOMMON dist/default/production\Lab_02.X.pro
 %SEGMENTS
 text4 0 180 300 405 2
 cstackCOMMON 1 70 70 B 1
-cstackBANK0 1 20 20 13 1
-intentry 0 4 8 F1 2
+cstackBANK0 1 20 20 11 1
+intentry 0 4 8 E3 2
 reset_vec 0 0 0 3 2
 strings 0 100 200 80 2
 # %NOTES Section
