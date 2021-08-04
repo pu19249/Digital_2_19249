@@ -42,9 +42,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
 "58 slave03.c
 [v _setup `(v ~T0 @X0 0 ef ]
-"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
@@ -121,6 +118,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "290
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
@@ -397,7 +397,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;slave03.c: 41: void main(void){
 [p x LVP  =  OFF         ]
 "45
-[; ;slave03.c: 45:         PORTB--;
+[; ;slave03.c: 45: 
 [p x BOR4V  =  BOR40V    ]
 "47
 [; ;slave03.c: 47:             _delay((unsigned long)((100)*(4000000/4000000.0)));
@@ -476,8 +476,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [e :U 151 ]
 {
-"94
-[e -- _PORTB -> -> 1 `i `Vuc ]
 "95
 [e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 153  ]
 {

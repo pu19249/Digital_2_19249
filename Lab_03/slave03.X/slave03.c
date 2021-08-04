@@ -91,7 +91,7 @@ void main(void){
     setup();
     
     while(1){
-        PORTB--;
+        //PORTB--;
         if (ADCON0bits.GO == 0){ //se apaga automaticamente entonces hay que
             __delay_us(100);     //volver a encenderlo
             ADCON0bits.GO = 1;
