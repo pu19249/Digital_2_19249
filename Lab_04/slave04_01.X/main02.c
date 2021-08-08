@@ -59,7 +59,7 @@ void __interrupt() isr(void){
     //////////////////////////////////
     if(ADIF){
         if(ADCON0bits.CHS == 0){
-            PORTB = ADRESH;
+            PORTB = ADRESH; //para probar el funcionamiento del adc
             voltaje = ADRESH;
         }
         ADIF = 0;

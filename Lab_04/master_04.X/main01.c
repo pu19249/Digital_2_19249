@@ -62,8 +62,8 @@ void main(void){
     while(1){
         //Obtener informacion del primer slave
         I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        PORTB = I2C_Master_Read(0);
+        I2C_Master_Write(0x51); //51, el 1 para que lea
+        PORTB = I2C_Master_Read(0); //lo escribo en el puerto de leds
         I2C_Master_Stop();
         __delay_ms(200);
     
