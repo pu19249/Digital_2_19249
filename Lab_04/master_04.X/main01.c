@@ -66,7 +66,24 @@ void main(void){
         PORTB = I2C_Master_Read(0); //lo escribo en el puerto de leds
         I2C_Master_Stop();
         __delay_ms(200);
-    
+       //Obtener informacion del sensor de temperatura
+        //Direccion 0x90 porque A0 A1 y A2 estan a tierra
+        I2C_Master_Start();
+        I2C_Master_Write(0x80); //seleccionar el sensor y se escribe
+        I2C_Master_Write(0xF3); //read temperature
+        I2C_Master_Stop();
+        __delay_ms(200);
+        
+        I2C_Master_Start();
+        I2C_Master_Write(0x81); //para que ahora lea
+        PORTA = I2C_Master_Read(0); //read temperature
+        //voltaje = I2C_Master_Read(1);
+        //I2C_Master_Write(0x22); //Stop convert
+        I2C_Master_Stop();
+        //I2C_Master_RepeatedStart();
+        //PORTA = I2C_Master_Read(0);
+        //I2C_Master_Stop();
+        __delay_ms(200);
     }
     return;
 }
@@ -81,11 +98,19 @@ void main(void){
 
 void setup(void){
     //Salidas digitales para los leds del master
-    TRISB = 0x00;
+    TRISB = 0x00; //despliega lectura de pot
     ANSELH = 0x00;
+    TRISA = 0x00; //para desplegar lectura de ds1621
+
+     //Configurar reloj interno
+    OSCCONbits.IRCF0 = 0;        //reloj interno de 4mhz
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;
+    OSCCONbits.SCS = 1;  //internal oscillator is used for system clock
 
     
     //Inicializar puertos
+    PORTA = 0x00;
     PORTB = 0X00;
     PORTC = 0X00;
     PORTD = 0X00;

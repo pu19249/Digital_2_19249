@@ -2848,6 +2848,7 @@ void __attribute__((picinterrupt(("")))) isr(void){
             while(!SSPSTATbits.BF);
             voltaje = SSPBUF;
             _delay((unsigned long)((250)*(4000000/4000000.0)));
+            temp = SSPBUF;
 
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
@@ -2856,6 +2857,14 @@ void __attribute__((picinterrupt(("")))) isr(void){
             SSPCONbits.CKP = 1;
             _delay((unsigned long)((250)*(4000000/4000000.0)));
             while(SSPSTATbits.BF);
+
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = temp;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+
         }
 
         PIR1bits.SSPIF = 0;
@@ -2880,7 +2889,7 @@ void main(void){
     }
     return;
 }
-# 128 "main02.c"
+# 137 "main02.c"
 void setup(void){
 
     ANSELbits.ANS0 = 1;

@@ -446,73 +446,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main02.c: 38:             voltaje = SSPBUF;
 [p x FCMEN  =  OFF       ]
 "40
-[; ;main02.c: 40: 
+[; ;main02.c: 40:             temp = SSPBUF;
 [p x LVP  =  OFF         ]
 "44
-[; ;main02.c: 44:             SSPBUF = voltaje;
+[; ;main02.c: 44:             BF = 0;
 [p x BOR4V  =  BOR40V    ]
 "46
-[; ;main02.c: 46:             _delay((unsigned long)((250)*(4000000/4000000.0)));
+[; ;main02.c: 46:             SSPCONbits.CKP = 1;
 [p x WRT  =  OFF         ]
 "52
-[; ;main02.c: 52: 
+[; ;main02.c: 52:             SSPBUF = temp;
 [v _voltaje `uc ~T0 @X0 1 e ]
 [v _z `uc ~T0 @X0 1 e ]
 [v _temp `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "58
-[; ;main02.c: 58: void main(void){
+[; ;main02.c: 58: 
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
 "60
-[; ;main02.c: 60: 
+[; ;main02.c: 60:     }
 [e $ ! _ADIF 140  ]
 {
 "61
-[; ;main02.c: 61:     while(1){
+[; ;main02.c: 61: 
 [e $ ! == -> . . _ADCON0bits 0 2 `i -> 0 `i 141  ]
 {
 "62
-[; ;main02.c: 62: 
+[; ;main02.c: 62:     return;
 [e = _PORTB _ADRESH ]
 "63
-[; ;main02.c: 63:         if(ADCON0bits.GO == 0){
+[; ;main02.c: 63: }
 [e = _voltaje _ADRESH ]
 "64
-[; ;main02.c: 64:             _delay((unsigned long)((100)*(4000000/4000.0)));
+[; ;main02.c: 64: 
 }
 [e :U 141 ]
 "65
-[; ;main02.c: 65:             ADCON0bits.GO = 1;
+[; ;main02.c: 65: 
 [e = _ADIF -> -> 0 `i `b ]
 "66
-[; ;main02.c: 66:         }
+[; ;main02.c: 66: 
 }
 [e :U 140 ]
 "68
-[; ;main02.c: 68: 
+[; ;main02.c: 68:     setup();
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 142  ]
 {
 "70
-[; ;main02.c: 70:     return;
+[; ;main02.c: 70:     while(1){
 [e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
 "72
+[; ;main02.c: 72:         if(ADCON0bits.GO == 0){
 [e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 143  ]
 {
 "73
+[; ;main02.c: 73:             _delay((unsigned long)((100)*(4000000/4000.0)));
 [e = _z _SSPBUF ]
 "74
+[; ;main02.c: 74:             ADCON0bits.GO = 1;
 [e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "75
+[; ;main02.c: 75:         }
 [e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
 "76
+[; ;main02.c: 76: 
 [e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "77
+[; ;main02.c: 77: 
 }
 [e :U 143 ]
 "79
+[; ;main02.c: 79:     return;
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i ! != -> . . _SSPSTATbits 0 2 `i -> 0 `i 144  ]
 {
 "81
@@ -531,128 +538,146 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _voltaje _SSPBUF ]
 "87
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"89
+"88
+[e = _temp _SSPBUF ]
+"90
 }
 [e $U 148  ]
 [e :U 144 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 149  ]
 {
-"90
-[e = _z _SSPBUF ]
 "91
-[e = _BF -> -> 0 `i `b ]
+[e = _z _SSPBUF ]
 "92
-[e = _SSPBUF _voltaje ]
+[e = _BF -> -> 0 `i `b ]
 "93
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[e = _SSPBUF _voltaje ]
 "94
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "95
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"96
 [e $U 150  ]
 [e :U 151 ]
 [e :U 150 ]
 [e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 151  ]
 [e :U 152 ]
-"96
+"98
+[e = _z _SSPBUF ]
+"99
+[e = _BF -> -> 0 `i `b ]
+"100
+[e = _SSPBUF _temp ]
+"101
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"102
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"103
+[e $U 153  ]
+[e :U 154 ]
+[e :U 153 ]
+[e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 154  ]
+[e :U 155 ]
+"105
 }
 [e :U 149 ]
 [e :U 148 ]
-"98
+"107
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-"99
+"108
 }
 [e :U 142 ]
-"101
+"110
 [e $UE 139  ]
-"102
+"111
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"106
+"115
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"107
+"116
 [e ( _setup ..  ]
-"109
-[e :U 155 ]
+"118
+[e :U 158 ]
 {
-"111
-[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 157  ]
+"120
+[e $ ! == -> . . _ADCON0bits 1 1 `i -> 0 `i 160  ]
 {
-"112
+"121
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"113
+"122
 [e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-"114
+"123
+}
+[e :U 160 ]
+"126
 }
 [e :U 157 ]
-"117
-}
-[e :U 154 ]
-[e $U 155  ]
-[e :U 156 ]
-"118
-[e $UE 153  ]
-"119
-[e :UE 153 ]
-}
+[e $U 158  ]
+[e :U 159 ]
+"127
+[e $UE 156  ]
 "128
-[; ;main02.c: 128: void setup(void){
+[e :UE 156 ]
+}
+"137
+[; ;main02.c: 137: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"130
-[; ;main02.c: 130:     ANSELbits.ANS0 = 1;
+"139
+[; ;main02.c: 139:     ANSELbits.ANS0 = 1;
 [e = . . _ANSELbits 0 0 -> -> 1 `i `uc ]
-"131
-[; ;main02.c: 131:     TRISAbits.TRISA0 = 1;
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
-"133
-[; ;main02.c: 133:     TRISB = 0x00;
-[e = _TRISB -> -> 0 `i `uc ]
-"137
-[; ;main02.c: 137:     config_ADC(1);
-[e ( _config_ADC (1 -> -> 1 `i `uc ]
 "140
-[; ;main02.c: 140:     OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"141
-[; ;main02.c: 141:     OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
+[; ;main02.c: 140:     TRISAbits.TRISA0 = 1;
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
 "142
-[; ;main02.c: 142:     OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"143
-[; ;main02.c: 143:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+[; ;main02.c: 142:     TRISB = 0x00;
+[e = _TRISB -> -> 0 `i `uc ]
 "146
-[; ;main02.c: 146:     PIE1bits.ADIE = 1;
-[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-"147
-[; ;main02.c: 147:     PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"148
-[; ;main02.c: 148:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main02.c: 146:     config_ADC(1);
+[e ( _config_ADC (1 -> -> 1 `i `uc ]
 "149
-[; ;main02.c: 149:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main02.c: 149:     OSCCONbits.IRCF0 = 0;
+[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
+"150
+[; ;main02.c: 150:     OSCCONbits.IRCF1 = 1;
+[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
+"151
+[; ;main02.c: 151:     OSCCONbits.IRCF2 = 1;
+[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
 "152
-[; ;main02.c: 152:     PORTA = 0X00;
-[e = _PORTA -> -> 0 `i `uc ]
-"153
-[; ;main02.c: 153:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main02.c: 152:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
 "155
-[; ;main02.c: 155:     I2C_Slave_Init(0x50);
-[e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
+[; ;main02.c: 155:     PIE1bits.ADIE = 1;
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+"156
+[; ;main02.c: 156:     PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "157
-[; ;main02.c: 157:     return;
-[e $UE 158  ]
+[; ;main02.c: 157:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "158
-[; ;main02.c: 158: }
-[e :UE 158 ]
+[; ;main02.c: 158:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"161
+[; ;main02.c: 161:     PORTA = 0X00;
+[e = _PORTA -> -> 0 `i `uc ]
+"162
+[; ;main02.c: 162:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
+"164
+[; ;main02.c: 164:     I2C_Slave_Init(0x50);
+[e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
+"166
+[; ;main02.c: 166:     return;
+[e $UE 161  ]
+"167
+[; ;main02.c: 167: }
+[e :UE 161 ]
 }

@@ -85,6 +85,7 @@ void __interrupt() isr(void){
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
             voltaje = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
+            temp = SSPBUF;
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
@@ -92,7 +93,7 @@ void __interrupt() isr(void){
             SSPBUF = voltaje;
             SSPCONbits.CKP = 1;
             __delay_us(250);
-            while(SSPSTATbits.BF);
+            while(SSPSTATbits.BF);           
         }
        
         PIR1bits.SSPIF = 0;  
