@@ -1,4 +1,4 @@
-# 1 "main01.c"
+# 1 "main03.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main01.c" 2
-# 11 "main01.c"
+# 1 "main03.c" 2
+# 10 "main03.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,7 +2488,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 11 "main01.c" 2
+# 10 "main03.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2623,7 +2623,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "main01.c" 2
+# 11 "main03.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2722,93 +2722,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "main01.c" 2
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 1 3
-
-
-
-
-
-
-typedef unsigned short wchar_t;
-
-
-
-
-
-
-
-typedef struct {
- int rem;
- int quot;
-} div_t;
-typedef struct {
- unsigned rem;
- unsigned quot;
-} udiv_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- unsigned long quot;
- unsigned long rem;
-} uldiv_t;
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-
-
-
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-
-
-
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-# 104 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdlib.h" 3
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-# 15 "main01.c" 2
+# 12 "main03.c" 2
 
 
 
@@ -2853,29 +2767,13 @@ unsigned short I2C_Master_Read(unsigned short a);
 
 
 void I2C_Slave_Init(uint8_t address);
-# 18 "main01.c" 2
+# 15 "main03.c" 2
 
-# 1 "./LCD_4b.h" 1
-# 47 "./LCD_4b.h"
-void Lcd_Port(char a);
 
-void Lcd_Cmd(char a);
 
-void Lcd_Clear(void);
 
-void Lcd_Set_Cursor(char a, char b);
 
-void Lcd_Init(void);
 
-void Lcd_Write_Char(char a);
-
-void Lcd_Write_String(char *a);
-
-void Lcd_Shift_Right(void);
-
-void Lcd_Shift_Left(void);
-# 19 "main01.c" 2
-# 33 "main01.c"
 #pragma config FOSC = INTRC_NOCLKOUT
 
 
@@ -2905,118 +2803,97 @@ void Lcd_Shift_Left(void);
 
 
 
-uint8_t voltaje, temp, temp1, sensor1, sensor2, dividendo, centenas,
-        residuo, decenas, unidades;
+uint8_t contador, z;
 
 
 
 void setup(void);
-void division (char dividendo);
+
+void __attribute__((picinterrupt(("")))) isr(void){
+    if (RBIF == 1){
+        if (RB0 == 0){
+            PORTD++;
+
+
+        }
+        if (RB1 == 0){
+            PORTD--;
+
+        }
+        RBIF = 0;
+    }
+
+    if(PIR1bits.SSPIF == 1){
+
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            contador = SSPBUF;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+
+
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = contador;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+        }
+
+        PIR1bits.SSPIF = 0;
+    }
+
+}
 
 
 
 void main(void){
     setup();
-    TRISD = 0x00;
-    Lcd_Init();
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("S1:");
-    Lcd_Set_Cursor(1,8);
-    Lcd_Write_String("S2:");
-    Lcd_Set_Cursor(1,14);
-    Lcd_Write_String("S3:");
-    while(1)
-    {
 
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        sensor1 = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(0xF3);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x81);
-        temp = ((I2C_Master_Read(0))<<8);
-        temp += I2C_Master_Read(0);
-        temp = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x61);
-        sensor2 = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-
-        temp &= ~0x003;
-        temp1 = ((175.72*temp)/65536)-46.85;
-
-
-        Lcd_Set_Cursor(2,1);
-        division(sensor1);
-        Lcd_Write_Char(centenas);
-        Lcd_Set_Cursor(2,2);
-        Lcd_Write_Char(decenas);
-        Lcd_Set_Cursor(2,3);
-        Lcd_Write_Char(unidades);
-
-        Lcd_Set_Cursor(2,8);
-        division(sensor2);
-        Lcd_Write_Char(decenas);
-        Lcd_Set_Cursor(2,9);
-        Lcd_Write_Char(unidades);
-
-        Lcd_Set_Cursor(2,13);
-        division(temp);
-        Lcd_Write_Char(centenas);
-        Lcd_Set_Cursor(2,14);
-        Lcd_Write_Char(decenas);
-        Lcd_Set_Cursor(2,15);
-        Lcd_Write_Char(unidades);
-        Lcd_Set_Cursor(2,16);
-        Lcd_Write_Char(39);
-
+    while(1){
+        contador = PORTD;
     }
     return;
 }
-
-
-
-void division (char dividendo){
-
-    centenas = (dividendo)/100;
-    residuo = dividendo%100;
-    decenas = residuo/10;
-    unidades = residuo%10;
-
-    centenas += 48;
-    decenas += 48;
-    unidades += 48;
-    return;
-}
-
-
-
-
-
+# 125 "main03.c"
 void setup(void){
 
-    TRISB = 0x00;
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
+
+    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 1;
     ANSELH = 0x00;
-    TRISA = 0x00;
-    TRISD = 0X00;
-    TRISE = 0X00;
+    PORTD = 0X00;
+    PORTB = 0x00;
+
+
+    OPTION_REGbits.nRBPU = 0;
+    WPUB = 0b00000011;
+    IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
+
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+
 
     OSCCONbits.IRCF0 = 0;
     OSCCONbits.IRCF1 = 1;
@@ -3024,16 +2901,7 @@ void setup(void){
     OSCCONbits.SCS = 1;
 
 
-
-    PORTA = 0x00;
-    PORTB = 0X00;
-    PORTC = 0X00;
-    PORTD = 0X00;
-    PORTE = 0X00;
-
-
-    I2C_Master_Init(100000);
-
+    I2C_Slave_Init(0x60);
 
     return;
 }

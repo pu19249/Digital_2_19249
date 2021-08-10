@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include <stdio.h> //libreria para mandar str en comunicacion serial
 #include <pic16f887.h> 
+
+#include "I2C.h"
 #define _XTAL_FREQ 4000000
 /*=============================================================================
                         BITS DE CONFIGURACION
@@ -45,15 +47,72 @@
 /*==============================================================================
                                 VARIABLES
  =============================================================================*/
-
+uint8_t contador, z;
 /*==============================================================================
                                INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
+void setup(void);
 
+void __interrupt() isr(void){
+    if (RBIF == 1){
+        if (RB0 == 0){
+            PORTD++;
+            
+            
+        }
+        if (RB1 == 0){
+            PORTD--;
+            
+        }
+        RBIF = 0;
+    }
+    /////////////////////////////////
+    if(PIR1bits.SSPIF == 1){ 
+
+        SSPCONbits.CKP = 0;
+       
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;                 // Read the previous value to clear the buffer
+            SSPCONbits.SSPOV = 0;       // Clear the overflow flag
+            SSPCONbits.WCOL = 0;        // Clear the collision bit
+            SSPCONbits.CKP = 1;         // Enables SCL (Clock)
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+            //__delay_us(7);
+            z = SSPBUF;                 // Lectura del SSBUF para limpiar el buffer y la bandera BF
+            //__delay_us(2);
+            PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
+            SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
+            while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
+            contador = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            __delay_us(250);
+            //z = SSPBUF;
+            
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = contador;
+            SSPCONbits.CKP = 1;
+            __delay_us(250);
+            while(SSPSTATbits.BF);           
+        }
+       
+        PIR1bits.SSPIF = 0;  
+    }
+    
+}
 /*==============================================================================
                                 LOOP PRINCIPAL
  =============================================================================*/
-
+void main(void){
+    setup();
+    
+    while(1){
+        contador = PORTD;
+    }
+    return;
+}
 /*==============================================================================
                                     FUNCIONES
  =============================================================================*/
@@ -63,3 +122,38 @@
                             CONFIGURACION DE PIC
  =============================================================================*/
 
+void setup(void){
+    //configurar leds de salida
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
+    
+    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 1;
+    ANSELH = 0x00;
+    PORTD = 0X00;
+    PORTB = 0x00;
+    
+    //configuracion de internal pullups y iocb
+    OPTION_REGbits.nRBPU = 0; //internal pull-ups are enabled
+    WPUB = 0b00000011;
+    IOCBbits.IOCB0 = 1;     //Boton de inc
+    IOCBbits.IOCB1 = 1;     //Boton de dec
+    
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;    //limpiar bandera de interrupcion
+    INTCONbits.GIE = 1;     //habilita las interrupciones globales
+    INTCONbits.PEIE = 1;    //periferical interrupts
+    
+    //Configurar reloj interno
+    OSCCONbits.IRCF0 = 0;        //reloj interno de 4mhz
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;
+    OSCCONbits.SCS = 1;  //internal oscillator is used for system clock
+    
+    //Inicializar I2C en esclavo
+    I2C_Slave_Init(0x60); //se le asigna esta direccion al primer esclavo
+    
+    return;
+}
