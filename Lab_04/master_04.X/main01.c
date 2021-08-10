@@ -59,8 +59,10 @@
 /*==============================================================================
                                 VARIABLES
  =============================================================================*/
-uint8_t voltaje, temp, temp1, sensor1, sensor2, dividendo, centenas,
+uint8_t voltaje, sensor1, sensor2, dividendo, centenas,
         residuo, decenas, unidades;
+uint16_t temp; //porque son dos bytes
+float temp1; //porque recibira valores en decimal para el mapeo
 /*==============================================================================
                                INTERRUPCIONES Y PROTOTIPOS
  =============================================================================*/
@@ -99,9 +101,8 @@ void main(void){
         
         I2C_Master_Start();
         I2C_Master_Write(0x81); //para que ahora lea
-        temp = ((I2C_Master_Read(0))<<8); //read temperature
-        temp += I2C_Master_Read(0);
-        temp = I2C_Master_Read(0);
+        temp = (I2C_Master_Read(0))<<8; //read temperature and get ms byte
+        temp += I2C_Master_Read(0); //add the ls byte
         I2C_Master_Stop();
         __delay_ms(200);
 //        
@@ -112,11 +113,9 @@ void main(void){
         I2C_Master_Stop();
         __delay_ms(200);
         
+        temp1 = ((175.72*temp)/65536) - 46.85; //funcion de mapeo segun dsheet
         
-        temp &= ~0x003;
-        temp1 = ((175.72*temp)/65536)-46.85;
-//        PORTA = temp;
-        
+        //Escritura en la LCD del slave 1
         Lcd_Set_Cursor(2,1);
         division(sensor1);
         Lcd_Write_Char(centenas);
@@ -124,15 +123,25 @@ void main(void){
         Lcd_Write_Char(decenas);
         Lcd_Set_Cursor(2,3);
         Lcd_Write_Char(unidades);
-        
+        //Escritura en la LCD del slave 2
         Lcd_Set_Cursor(2,8);
         division(sensor2);
         Lcd_Write_Char(decenas);
         Lcd_Set_Cursor(2,9);
         Lcd_Write_Char(unidades);
         
+        //Escritura en la LCD del sensor de temperatura
+        if(temp1 < 0){
+            temp1 *= -1;
+            Lcd_Set_Cursor(2, 12);
+            Lcd_Write_Char(45);
+        }
+        else if(temp1 >= 0){
+            Lcd_Set_Cursor(2, 12);
+            Lcd_Write_Char(' ');
+        }
         Lcd_Set_Cursor(2,13);
-        division(temp);
+        division(temp1);
         Lcd_Write_Char(centenas);
         Lcd_Set_Cursor(2,14);
         Lcd_Write_Char(decenas);
@@ -166,9 +175,9 @@ void division (char dividendo){
 
 void setup(void){
     //Salidas digitales para los leds del master
-    TRISB = 0x00; //despliega lectura de pot
+    //TRISB = 0x00; //despliega lectura de pot para prelab y pruebas
     ANSELH = 0x00;
-    TRISA = 0x00; //para desplegar lectura de ds1621
+    //TRISA = 0x00; //para desplegar lectura de ds1621 para lab y pruebas
     TRISD = 0X00;
     TRISE = 0X00;
      //Configurar reloj interno

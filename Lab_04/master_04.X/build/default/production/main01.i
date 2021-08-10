@@ -2905,8 +2905,10 @@ void Lcd_Shift_Left(void);
 
 
 
-uint8_t voltaje, temp, temp1, sensor1, sensor2, dividendo, centenas,
+uint8_t voltaje, sensor1, sensor2, dividendo, centenas,
         residuo, decenas, unidades;
+uint16_t temp;
+float temp1;
 
 
 
@@ -2945,9 +2947,8 @@ void main(void){
 
         I2C_Master_Start();
         I2C_Master_Write(0x81);
-        temp = ((I2C_Master_Read(0))<<8);
+        temp = (I2C_Master_Read(0))<<8;
         temp += I2C_Master_Read(0);
-        temp = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
@@ -2958,9 +2959,7 @@ void main(void){
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
-
-        temp &= ~0x003;
-        temp1 = ((175.72*temp)/65536)-46.85;
+        temp1 = ((175.72*temp)/65536) - 46.85;
 
 
         Lcd_Set_Cursor(2,1);
@@ -2977,8 +2976,18 @@ void main(void){
         Lcd_Set_Cursor(2,9);
         Lcd_Write_Char(unidades);
 
+
+        if(temp1 < 0){
+            temp1 *= -1;
+            Lcd_Set_Cursor(2, 12);
+            Lcd_Write_Char(45);
+        }
+        else if(temp1 >= 0){
+            Lcd_Set_Cursor(2, 12);
+            Lcd_Write_Char(' ');
+        }
         Lcd_Set_Cursor(2,13);
-        division(temp);
+        division(temp1);
         Lcd_Write_Char(centenas);
         Lcd_Set_Cursor(2,14);
         Lcd_Write_Char(decenas);
@@ -3012,9 +3021,9 @@ void division (char dividendo){
 
 void setup(void){
 
-    TRISB = 0x00;
+
     ANSELH = 0x00;
-    TRISA = 0x00;
+
     TRISD = 0X00;
     TRISE = 0X00;
 
