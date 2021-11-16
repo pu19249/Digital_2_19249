@@ -204,12 +204,12 @@ if (digitalRead(PUSH2) == HIGH) {
   }
   
   if (counter1 == 3){
-    MapSD("walle320.txt"); 
+    MapSD("menu.txt"); 
     delay(50);
-    MapSD("mario320.txt");
+    MapSD("background.txt");
   }
   if (counter2 == 3){
-    MapSD1("mario320.txt");
+    MapSD1("intro.txt");
     delay(50);
   }
 

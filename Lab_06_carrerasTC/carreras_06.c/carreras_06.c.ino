@@ -83,21 +83,21 @@ void setup() {
 void loop() {
 
   //PRELAB
-  //  int i = 0; //two variables to iterate over to for loops
-  //  int j = 0;
-  //  if (digitalRead(PUSH1) == LOW) { //push to activate the counter
-  //    for (i = 0; i < 255; i++) { //255 numbers we can get
-  //      for (j = 0; j < 8; j++) { //8 leds that we have
-  //        if ( ((i >> j) & 1 )  == 1)  { //division to take the binary number
-  //          digitalWrite(outPins[j], HIGH); //turn on the leds in the array
-  //        }
-  //        else {
-  //          digitalWrite(outPins[j], LOW); //or turn them all down
-  //        }
-  //      }
-  //      delay(250);
-  //    }
-  //  }
+//    int i = 0; //two variables to iterate over to for loops
+//    int j = 0;
+//    if (digitalRead(PUSH1) == LOW) { //push to activate the counter
+//      for (i = 0; i < 255; i++) { //255 numbers we can get
+//        for (j = 0; j < 8; j++) { //8 leds that we have
+//          if ( ((i >> j) & 1 )  == 1)  { //division to take the binary number
+//            digitalWrite(outPins[j], HIGH); //turn on the leds in the array
+//          }
+//          else {
+//            digitalWrite(outPins[j], LOW); //or turn them all down
+//          }
+//        }
+//        delay(250);
+//      }
+//    }
 
   //LAB
 

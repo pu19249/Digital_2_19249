@@ -1,0 +1,5 @@
+Link del video explicativo:
+https://youtu.be/POtvQ20-6RA
+
+Link codigo en github:
+https://github.com/pu19249/Digital_2_19249/blob/main/Lab_06_carrerasTC/carreras_06.c/carreras_06.c.ino

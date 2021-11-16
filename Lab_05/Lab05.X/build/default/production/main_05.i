@@ -2945,7 +2945,7 @@ void main(void){
        strcat(s1, s3);
        int completo = atoi(s1);
        PORTD = completo;
-       PORTD = completo;
+
 
     }
 }
