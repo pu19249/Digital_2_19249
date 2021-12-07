@@ -27,7 +27,7 @@ WebServer server(80);  // Object of WebServer(HTTP port, 80 is defult)
 
 uint8_t LED1pin = 2;
 bool LED1status = LOW;
-int status1, status2;
+int status1, status2, status3;
 int go;
 //************************************************************************************************
 // Configuración
@@ -35,6 +35,9 @@ int go;
 void setup() {
   Serial.begin(115200);
   Serial.setTimeout(50);
+  delay(100);
+  Serial2.begin(115200);
+  Serial2.setTimeout(50);
   delay(100);
   pinMode(LED1pin, OUTPUT);
   /*if (!SPIFFS.begin()) {
@@ -67,25 +70,66 @@ void setup() {
   server.begin(); // iniciar servidor
   Serial.println("HTTP server started");
   delay(100);
-  pinMode(34, OUTPUT);
-  pinMode(35, OUTPUT);
-  pinMode(32, OUTPUT);
-  pinMode(33, OUTPUT);
+  pinMode(12, OUTPUT); //e
+  pinMode(14, OUTPUT); //d
+  pinMode(27, OUTPUT); //c
+  pinMode(26, OUTPUT); //g
+  pinMode(25, OUTPUT); //f
+  pinMode(33, OUTPUT); //a
+  pinMode(32, OUTPUT); //b
 }
 //************************************************************************************************
 // loop principal
 //************************************************************************************************
 void loop() {
-  digitalWrite(34, LOW);
-    digitalWrite(35, LOW);
-    digitalWrite(32, LOW);
-    digitalWrite(33, LOW);
   server.handleClient(); // escuchar solicitudes de clientes
+  if(Serial2.available()) {
+ 
+    status2 = Serial2.read();
+    if(status2 == '0'){
+      Serial.print("0");
+      go = 0;
+      server.send(200, "text/html", SendHTML(go));
+    }
+    if(status2 == '1'){
+      Serial.print("1");
+      go = 1;
+      server.send(200, "text/html", SendHTML(go));
+    }
+    if(status2 == '2'){
+      Serial.print("2");
+      go = 2;
+      server.send(200, "text/html", SendHTML(go));
+    }
+    if(status2 == '3'){
+      Serial.print("3");
+      go = 3;
+      server.send(200, "text/html", SendHTML(go));
+    }
+    if(status2 == '4'){
+      Serial.print("4");
+      go = 4;
+      server.send(200, "text/html", SendHTML(go));
+    }
+
+  }
 }
+
+
+
+
 //************************************************************************************************
 // Handler de página de inicio
 //************************************************************************************************
 void handle_OnConnect() {
+  //8
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, HIGH); //
+  digitalWrite(25, HIGH); //
+  digitalWrite(26, HIGH); //
   status1 = 0; // inicia todo libre, por defecto
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -93,6 +137,14 @@ void handle_OnConnect() {
 // Handler de 1 ocupado
 //************************************************************************************************
 void handle_s1() {
+  //7
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, LOW); //
+  digitalWrite(12, LOW); //
+  digitalWrite(25, LOW); //
+  digitalWrite(26, LOW); //
   status1 = 1;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 
@@ -101,6 +153,14 @@ void handle_s1() {
 // Handler de 2 ocupados
 //************************************************************************************************
 void handle_s2() {
+  //6
+  digitalWrite(33, LOW); //
+  digitalWrite(32, LOW); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, HIGH); //
+  digitalWrite(25, HIGH); //
+  digitalWrite(26, HIGH); //
   status1 = 2;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -109,6 +169,14 @@ void handle_s2() {
 // Handler de 3 ocupado
 //************************************************************************************************
 void handle_s3() {
+  //5
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, LOW); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, LOW); //
+  digitalWrite(25, HIGH); //
+  digitalWrite(26, HIGH); //
   status1 = 3;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -116,6 +184,14 @@ void handle_s3() {
 // Handler de 4 ocupados
 //************************************************************************************************
 void handle_s4() {
+  //4
+  digitalWrite(33, LOW); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, LOW); //
+  digitalWrite(12, LOW); //
+  digitalWrite(25, HIGH); //
+  digitalWrite(26, HIGH); //
   status1 = 4;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -124,6 +200,14 @@ void handle_s4() {
 // Handler de 5 ocupado
 //************************************************************************************************
 void handle_s5() {
+  //3
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, LOW); //
+  digitalWrite(25, LOW); //
+  digitalWrite(26, HIGH); //
   status1 = 5;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -131,6 +215,14 @@ void handle_s5() {
 // Handler de 6 ocupados
 //************************************************************************************************
 void handle_s6() {
+  //2
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, LOW); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, HIGH); //
+  digitalWrite(25, LOW); //
+  digitalWrite(26, HIGH); //
   status1 = 6;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -139,6 +231,14 @@ void handle_s6() {
 // Handler de 7 ocupado
 //************************************************************************************************
 void handle_s7() {
+  //1
+  digitalWrite(33, LOW); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, LOW); //
+  digitalWrite(12, LOW); //
+  digitalWrite(25, LOW); //
+  digitalWrite(26, LOW); //
   status1 = 7;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -146,6 +246,14 @@ void handle_s7() {
 // Handler de 8 ocupados
 //************************************************************************************************
 void handle_s8() {
+  //0
+  digitalWrite(33, HIGH); //
+  digitalWrite(32, HIGH); //
+  digitalWrite(27, HIGH); //
+  digitalWrite(14, HIGH); //
+  digitalWrite(12, HIGH); //
+  digitalWrite(25, HIGH); //
+  digitalWrite(26, LOW); //
   status1 = 8;
   server.send(200, "text/html", SendHTML(status1)); //responde con un OK (200) y envía HTML
 }
@@ -171,47 +279,49 @@ String SendHTML(uint8_t led1stat) {
   ptr += "<h1>Parqueo-matic &#128664</h1>\n";
   ptr += "<h3>Web Server (AP)</h3>\n";
 
-if (Serial.available()) {
-      status2 = Serial.read();
-      if (status2 == '1') {
-        Serial.print("1");
-        ptr += "<a class=\"button button-off\" href=\"/s1\">Actualizar</a>\n";
-        
-      }
-      if (status2 == '2') {
-        Serial.print("2");
-        ptr += "<a class=\"button button-off\" href=\"/s2\">Actualizar</a>\n";
-      }
-      if (status2 == '3') {
-        Serial.print("3");
-        ptr += "<a class=\"button button-off\" href=\"/s3\">Actualizar</a>\n";
-      }
-      if (status2 == '4') {
-        Serial.print("4");
-        ptr += "<a class=\"button button-off\" href=\"/s4\">Actualizar</a>\n";
-      }
-      if (status2 == '5') {
-        Serial.print("5");
-        ptr += "<a class=\"button button-off\" href=\"/s5\">Actualizar</a>\n";
-      }
-      if (status2 == '6') {
-        Serial.print("6");
-        ptr += "<a class=\"button button-off\" href=\"/s6\">Actualizar</a>\n";
-      }
-      if (status2 == '7') {
-        Serial.print("7");
-        ptr += "<a class=\"button button-off\" href=\"/s7\">Actualizar</a>\n";
-      }
-      if (status2 == '8') {
-        Serial.print("8");
-        ptr += "<a class=\"button button-off\" href=\"/s8\">Actualizar</a>\n";
-      }
-      
-    }
+//  if (Serial2.available()) {
+//        status2 = Serial2.read();
+//        if (status2 == '0') {
+//          Serial.print("0");
+//          ptr += "<a class=\"button button-off\" href=\"/s1\">Update</a>\n";
+//  
+//        }
+//        if (status2 == '1') {
+//          Serial.print("1");
+//          ptr += "<a class=\"button button-off\" href=\"/s2\">Update</a>\n";
+//        }
+//        if (status2 == '2') {
+//          Serial.print("2");
+//          ptr += "<a class=\"button button-off\" href=\"/s3\">Update</a>\n";
+//        }
+//        if (status2 == '3') {
+//          Serial.print("3");
+//          ptr += "<a class=\"button button-off\" href=\"/s4\">Update</a>\n";
+//        }
+//        if (status2 == '4') {
+//          Serial.print("4");
+//          ptr += "<a class=\"button button-off\" href=\"/s5\">Update</a>\n";
+//        }
+//        if (status2 == '5') {
+//          Serial.print("5");
+//          ptr += "<a class=\"button button-off\" href=\"/s6\">Update</a>\n";
+//        }
+//        if (status2 == '6') {
+//          Serial.print("6");
+//          ptr += "<a class=\"button button-off\" href=\"/s7\">Update</a>\n";
+//        }
+//        if (status2 == '7') {
+//          Serial.print("7");
+//          ptr += "<a class=\"button button-off\" href=\"/s8\">Update</a>\n";
+//        }
+//  
+//      }
   if (led1stat == 0)
   {
+    //ptr += "<a class=\"button button-off\" href=\"/s8\">Update</a>\n";
     //ptr += "<a href=\"/espacio_1\"></a>\n";
     //ptr += "<a href=\"/espacio_1\"></a>\n";
+    ptr += "<a class=\"button button-off\" href=\"/\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: MediumSeaGreen;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -229,14 +339,10 @@ if (Serial.available()) {
     ptr += "<h2>Parqueos disponibles</h2>\n";
     ptr += "<div class=wrapper><div class=one>1</div><div class=two>2</div><div class=three>3</div><div class=four>4</div><div class=five>5</div><div class=six>6</div><div class=seven>7</div><div class=eight>8</div></div>\n";
     ptr += "</body>";
-    digitalWrite(10, LOW);
-    digitalWrite(11, LOW);
-    digitalWrite(12, LOW);
-    digitalWrite(13, LOW);
   }
   if (led1stat == 1)
   {
-
+    ptr += "<a class=\"button button-off\" href=\"/s1\">Update</a>\n";
     //ptr += "<a class=\"button button-off\" href=\"/espacio_2\"></a>\n";
     //ptr += "<a href=\"/espacio_1\"></a>\n";
     ptr += "<style>\n";
@@ -259,6 +365,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 2)
   {
+    ptr += "<a class=\"button button-off\" href=\"/s2\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -279,7 +386,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 3)
   {
-
+    ptr += "<a class=\"button button-off\" href=\"/s3\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -300,7 +407,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 4)
   {
-
+    ptr += "<a class=\"button button-off\" href=\"/s4\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -321,7 +428,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 5)
   {
-
+    ptr += "<a class=\"button button-off\" href=\"/s5\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -343,7 +450,7 @@ if (Serial.available()) {
   else if (led1stat == 6)
   {
 
-
+    ptr += "<a class=\"button button-off\" href=\"/s6\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -364,7 +471,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 7)
   {
-
+    ptr += "<a class=\"button button-off\" href=\"/s7\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
@@ -385,6 +492,7 @@ if (Serial.available()) {
   }
   else if (led1stat == 8)
   {
+    ptr += "<a class=\"button button-off\" href=\"/s8\">Update</a>\n";
     ptr += "<style>\n";
     ptr += ".wrapper {display: grid;grid-template-columns: repeat(4, 1fr);gap: 10px;grid-auto-rows: minmax(100px, auto);}\n";
     ptr += ".one{margin-right: 10%;border-style: ridge;background-color: Tomato;display: flex;align-items: center;justify-content: center;grid-column: 1;grid-row: 1;}\n";
